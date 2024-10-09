@@ -45,6 +45,11 @@
         search_regex: OpenSSH
         delay: 10
 
+    - name: Capture public dns name
+      register: my_server
+      ansible.builtin.set_fact:
+        my_server: "{{ ec2_vms.instances[0].public_dns_name }}"
+
   rescue:
 
     - name: Capture the error message
