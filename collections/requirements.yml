@@ -1,0 +1,8 @@
+---
+collections:
+  - name: f5networks.f5_modules
+    version: 1.31.0
+  - name: f5networks.f5_bigip
+    version: 3.7.0
+  - name: ansible.netcommon
+    version: 7.1.0

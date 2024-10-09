@@ -1,0 +1,10 @@
+---
+- name: Remove our F5 daily demo
+  hosts: localhost
+  connection: local
+
+  roles:
+
+    - role: vpc
+      tags:
+        - removevpc

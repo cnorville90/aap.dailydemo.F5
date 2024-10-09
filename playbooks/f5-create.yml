@@ -1,0 +1,10 @@
+---
+- name: Create our F5 daily demo
+  hosts: localhost
+  connection: local
+
+  roles:
+
+    - role: vpc
+      tags:
+        - createvpc
