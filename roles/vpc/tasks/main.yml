@@ -139,6 +139,8 @@
     region: "{{ vpc_region }}"
 
 - name: Gather Route Table IDs
+  tags:
+    - removevpc
   register: inet_route_table
   amazon.aws.ec2_vpc_route_table_info:
     region: "{{ vpc_region }}"
