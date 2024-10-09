@@ -10,3 +10,9 @@
         - createvpc
       ansible.builtin.include_role:
         name: vpc
+
+    - name: Include the vm role
+      tags:
+        - createvm
+      ansible.builtin.include_role:
+        name: vm

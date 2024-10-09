@@ -5,6 +5,12 @@
 
   tasks:
 
+    - name: Include the vm role
+      tags:
+        - removevm
+      ansible.builtin.include_role:
+        name: vm
+
     - name: Include the vpc role
       tags:
         - removevpc
