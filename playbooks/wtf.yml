@@ -1,12 +1,13 @@
 ---
 - name: Setting the initial admin password
-  hosts: f5demo
+  hosts: localhost
+  connection: local
 
   tasks:
 
     - name: Set the initial admin password
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ inventory_hostname }} modify auth user admin prompt-for-password"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@ec2-54-153-115-119.us-west-1.compute.amazonaws.com modify auth user admin prompt-for-password"
         responses:
           "new password: ":
             - "{{ password }}"
