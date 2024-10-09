@@ -16,3 +16,9 @@
         - createvm
       ansible.builtin.include_role:
         name: vm
+
+    - name: Include the inventory role
+      tags:
+        - inventoryadd
+      ansible.builtin.include_role:
+        name: inventory

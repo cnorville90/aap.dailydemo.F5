@@ -16,3 +16,9 @@
         - removevpc
       ansible.builtin.include_role:
         name: vpc
+
+    - name: Include the inventory role
+      tags:
+        - inventorydel
+      ansible.builtin.include_role:
+        name: inventory
