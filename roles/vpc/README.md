@@ -35,17 +35,33 @@ Example Playbook
 ----------------
 ```
 ---
-- name: VPC Stuff
+- name: Create our F5 daily demo
   hosts: localhost
   connection: local
 
-  roles:
+  tasks:
 
-    - name: vpc
+    - name: Include the vpc role
+      tags:
+        - createvpc
+      ansible.builtin.include_role:
+        name: vpc
+
+or
+
+---
+- name: Remove our F5 daily demo
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Include the vpc role
       tags:
         - removevpc
-          or
-        - createvpc
+      ansible.builtin.include_role:
+        name: vpc
+
 ```
 License
 -------
