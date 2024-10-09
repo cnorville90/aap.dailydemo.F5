@@ -50,6 +50,15 @@
       ansible.builtin.set_fact:
         my_server: "{{ ec2_vms.instances[0].public_dns_name }}"
 
+    - name: Set the initial admin password
+      ansible.builtin.expect:
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ my_server }} modify auth user admin prompt-for-password"
+        responses:
+          "new password:":
+            - "{{ password }}"
+          "confirm password:":
+            - "{{ password }}"
+
   rescue:
 
     - name: Capture the error message
