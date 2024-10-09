@@ -3,8 +3,10 @@
   hosts: localhost
   connection: local
 
-  roles:
+  tasks:
 
-    - role: vpc
+    - name: Include the vpc role
       tags:
         - removevpc
+      ansible.builtin.include_role:
+        name: vpc
