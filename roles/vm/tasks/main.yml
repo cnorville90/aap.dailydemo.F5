@@ -52,7 +52,7 @@
 
     - name: Set the initial admin password
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ansible_facts['my_server'] }} modify auth user admin prompt-for-password"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_vms.instances[0].public_dns_name }} modify auth user admin prompt-for-password"
         responses:
           "new password:":
             - "{{ password }}"
