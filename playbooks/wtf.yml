@@ -8,8 +8,6 @@
   tasks:
 
     - name: Set the initial admin password
-      ignore_errors: true
-      changed_when: false
       ansible.builtin.expect:
         command: "ssh -o StrictHostKeyChecking=accept-new admin@ec2-54-153-115-119.us-west-1.compute.amazonaws.com modify auth user admin prompt-for-password"
         responses:
