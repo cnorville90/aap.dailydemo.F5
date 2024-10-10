@@ -79,6 +79,11 @@ Daily Demo F5 Machine Credential<br>
 
 Amazon Web Services Credential<br>
 
+**The AAP Managed Inventory**
+
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5inventory.png "AAP Managed Inventory")<br>
+
+
 Day 2
 =========
 
