@@ -97,7 +97,7 @@ Day 2
 quay.io/locust61/f5_ee:0.1
 ```
 
-**Credential**
+**A Network Credential is reguired for Day 2 ops**
 
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5networkcred.png "Daily Demo F5 Network credential")<br>
 
