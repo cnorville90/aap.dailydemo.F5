@@ -45,6 +45,10 @@
         search_regex: OpenSSH
         delay: 10
 
+    - name: Wait for things to come up
+      ansible.bultin.pause:
+        seconds: 60
+
     - name: Set the initial admin password
       ansible.builtin.expect:
         command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_vms.instances[0].public_dns_name }} modify auth user admin prompt-for-password"
