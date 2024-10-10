@@ -66,7 +66,7 @@
 
     - name: Public IP for the new f5
       ansible.builtin.debug:
-        msg: "{{ ec2_vms.instances[0].public_ip }}"
+        msg: "{{ ec2_vms.instances[0].public_ip_address }}"
 
   rescue:
 
