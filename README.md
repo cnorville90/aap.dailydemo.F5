@@ -83,6 +83,10 @@ Amazon Web Services Credential<br>
 
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5inventory.png "AAP Managed Inventory")<br>
 
+Group name
+```
+f5demo
+```
 
 Day 2
 =========
