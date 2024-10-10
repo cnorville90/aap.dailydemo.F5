@@ -40,6 +40,8 @@ extra_vars:
   controller_user: '{{user}}'
   controller_passwd: '{{password}}'
 ```
+Daily Demo F5 Machine Credential<br>
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5machinecred.png "Machine Credential")
 
 # Looking for the Windows Daily Demo?
 
