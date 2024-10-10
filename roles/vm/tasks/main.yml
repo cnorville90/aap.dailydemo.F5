@@ -46,7 +46,7 @@
         delay: 10
 
     - name: Wait for things to come up
-      ansible.bultin.pause:
+      ansible.builtin.pause:
         seconds: 60
 
     - name: Set the initial admin password
