@@ -64,14 +64,6 @@ Daily Demo F5 Machine Credential<br>
 
 Amazon Web Services Credential<br>
 
-# Looking for the Windows Daily Demo?
-
-- [AAP Daily Demo Windows](https://github.com/ericcames/aap.dailydemo.windows "AAP Daily Demo Windows")
-
-# Looking for the Linux Daily Demo?
-
-- [AAP Daily Demo Linux](https://github.com/ericcames/aap.dailydemo.linux "AAP Daily Demo Linux")
-
 # The command line; there's no place like home :-)
 
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5cli.png "The command line")
@@ -80,3 +72,11 @@ Example login using your ssh key that was shared with Amazon
 ```
 ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 ```
+
+# Looking for the Windows Daily Demo?
+
+- [AAP Daily Demo Windows](https://github.com/ericcames/aap.dailydemo.windows "AAP Daily Demo Windows")
+
+# Looking for the Linux Daily Demo?
+
+- [AAP Daily Demo Linux](https://github.com/ericcames/aap.dailydemo.linux "AAP Daily Demo Linux")
