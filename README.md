@@ -7,6 +7,9 @@ A demo designed to build the F5 Infrastructure needed to showcase many of the us
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5uipre.png "Pre Login")
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5uipost.png "Post Login")
 
+**The job logs contain the URL needed to login to the gui**
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5joblog.png "Job Log")
+
 **The playbooks**
 
 [1. Create the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-create.yml "f5-create.yml")<br>
