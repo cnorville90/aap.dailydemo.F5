@@ -12,7 +12,7 @@ A demo designed to build the F5 Infrastructure needed to showcase many of the us
 [1. Create the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-create.yml "f5-create.yml") <br>
 [2. Remove the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-remove.yml "f5-remove.yml")<br>
 
-**The Credentials**
+**The Credentials Types**
 
 Ansible Controller Credential<br>
 Input configuration
@@ -45,10 +45,10 @@ extra_vars:
 
 - [AAP Daily Demo Windows](https://github.com/ericcames/aap.dailydemo.windows "AAP Daily Demo Windows")
 
-# Cockpit the Administrators GUI
+# Looking for the Linux Daily Demo?
 
-![alt text](https://github.com/ericcames/aap.dailydemo.linux/blob/main/images/cockpit.png "cockpit")
+- [AAP Daily Demo Linux](https://github.com/ericcames/aap.dailydemo.linux "AAP Daily Demo Linux")
 
 # The command line; there's no place like home :-)
 
-![alt text](https://github.com/ericcames/aap.dailydemo.linux/blob/main/images/cli.png "The command line")
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5cli.png "The command line")
