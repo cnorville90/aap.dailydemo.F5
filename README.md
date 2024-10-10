@@ -83,7 +83,7 @@ Day 2
 =========
 
 **Execution Environment**<br>
-[F5_ee](https://quay.io/locust61/f5_ee:0.1 "F5 Execution Environment")
+- [F5_ee](https://quay.io/locust61/f5_ee:0.1 "F5 Execution Environment")
 ```
 quay.io/locust61/f5_ee:0.1
 ```
