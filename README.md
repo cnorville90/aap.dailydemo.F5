@@ -97,6 +97,10 @@ Day 2
 quay.io/locust61/f5_ee:0.1
 ```
 
+**Credential**
+
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5networkcred.png "Daily Demo F5 Network credential")<br>
+
 
 # Looking for the Windows Daily Demo?
 
