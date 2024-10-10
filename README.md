@@ -96,6 +96,36 @@ Day 2
 ```
 quay.io/locust61/f5_ee:0.1
 ```
+f5-execution-environment.yml
+```
+---
+version: 3
+
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:latest
+
+dependencies:
+  galaxy:
+    collections:
+      - f5networks.f5_modules
+      - f5networks.f5_bigip
+      - ansible.netcommon
+  system:
+    - pkgconf-pkg-config [platform:rpm]
+    - systemd-devel [platform:rpm]
+    - gcc [platform:rpm]
+    - python39-devel [platform:rpm]
+  python:
+    - packaging
+    - requests[security]
+    - xmltodict
+    - msgraph-sdk==1.0.0
+    - psycopg2-binary
+    - urllib3==1.26.15
+options:
+  package_manager_path: /usr/bin/microdnf
+```
 
 **A Network Credential is reguired for Day 2 ops**
 
