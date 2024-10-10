@@ -58,6 +58,7 @@ extra_vars:
 ```
 Daily Demo F5 Machine Credential<br>
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5machinecred.png "Machine Credential")<br>
+
 Amazon Web Services Credential<br>
 
 # Looking for the Windows Daily Demo?
@@ -71,3 +72,8 @@ Amazon Web Services Credential<br>
 # The command line; there's no place like home :-)
 
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5cli.png "The command line")
+
+Example login using your ssh key that was shared with Amazon
+```
+ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
+```
