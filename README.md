@@ -9,7 +9,7 @@ A demo designed to build the F5 Infrastructure needed to showcase many of the us
 
 **The playbooks**
 
-[1. Create the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-create.yml "f5-create.yml") <br>
+[1. Create the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-create.yml "f5-create.yml")<br>
 [2. Remove the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-remove.yml "f5-remove.yml")<br>
 
 **The Credentials Types**
@@ -41,7 +41,8 @@ extra_vars:
   controller_passwd: '{{password}}'
 ```
 Daily Demo F5 Machine Credential<br>
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5machinecred.png "Machine Credential")
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5machinecred.png "Machine Credential")<br>
+Amazon Web Services Credential<br>
 
 # Looking for the Windows Daily Demo?
 
