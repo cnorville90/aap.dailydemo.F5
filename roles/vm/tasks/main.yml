@@ -54,6 +54,10 @@
           "confirm password:":
             - "{{ password }}"
 
+    - name: Save the running config
+      ansible.builtin.expect:
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_vms.instances[0].public_dns_name }} save sys config
+
   rescue:
 
     - name: Capture the error message
