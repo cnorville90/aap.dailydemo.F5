@@ -91,6 +91,10 @@ f5demo
 Day 2
 =========
 
+**Example Playbooks**
+- [F5 example playbooks](https://gitlab.com/mlowcher/F5_examples "F5 example playbooks")
+
+
 **Execution Environment**<br>
 - [F5_ee](https://quay.io/locust61/f5_ee:0.1 "F5 Execution Environment")
 ```
