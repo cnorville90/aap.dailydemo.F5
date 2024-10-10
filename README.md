@@ -5,7 +5,7 @@ A demo designed to build the F5 Infrastructure needed to showcase many of the us
 # The F5 User Interface
 
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5uipre.png "Pre Login")
-![alt text](https://github.com/ericcames/aap.dailydemo.linux/blob/main/images/F5uipost.png "Post Login")
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5uipost.png "Post Login")
 
 **The playbooks**
 
