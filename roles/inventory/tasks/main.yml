@@ -45,6 +45,8 @@
     inventory: "{{ inventory_managed_inventory_name }}"
     state: present
     enabled: true
+    variables:
+      F5_mgmt_ip: "{{ ec2_vms.instances[0].public_ip_address }}"
 
 - name: Create a group
   tags:
@@ -59,6 +61,8 @@
     inventory: "{{ inventory_managed_inventory_name }}"
     hosts: "{{ item['public_dns_name'] }}"
     preserve_existing_hosts: true
+    variables:
+      server_port: '8443'
 
 - name: Update runtime inventory
   tags:
