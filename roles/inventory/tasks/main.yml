@@ -25,7 +25,7 @@
 
     - name: Create a new token using username/password
       ansible.controller.token:
-        controller_host: https://{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
         controller_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
         validate_certs: false
@@ -41,7 +41,7 @@
     - name: Update the AAP Managed Inventory
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.host:
-        controller_host: https://{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
@@ -54,7 +54,7 @@
     - name: Create a group
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.group:
-        controller_host: https://{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: f5demo
@@ -80,7 +80,7 @@
     - name: Remove vm from the inventory
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.host:
-        controller_host: https://{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
@@ -91,7 +91,7 @@
       loop:
         - f5demo
       ansible.controller.group:
-        controller_host: https://{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: "{{ item }}"
