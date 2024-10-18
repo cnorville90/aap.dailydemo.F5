@@ -12,7 +12,7 @@ Role Variables
 --------------
 ```
 inventory_vm_name: F5 Daily Demo
-# Use a custom credential for this
+# Use a Red Hat Ansible Automation Platform credential type
 # CONTROLLER_HOST: example.com
 # CONTROLLER_USERNAME: mickey.mouse
 # CONTROLLER_PASSWORD: password

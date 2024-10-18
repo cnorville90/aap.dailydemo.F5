@@ -4,15 +4,15 @@
     - always
   block:
 
-    - name: Check for our mandatory variables
-      # You can create a custom credential for the mandatory variables
-      ansible.builtin.assert:
-        that:
-          - CONTROLLER_HOST is defined
-          - CONTROLLER_USERNAME is defined
-          - CONTROLLER_PASSWORD is defined
-        fail_msg: "Please make sure your mandatory variables are set"
-        success_msg: "All mandatory variables have been set"
+    # - name: Check for our mandatory variables
+    #   # You can create a custom credential for the mandatory variables
+    #   ansible.builtin.assert:
+    #     that:
+    #       - CONTROLLER_HOST is defined
+    #       - CONTROLLER_USERNAME is defined
+    #       - CONTROLLER_PASSWORD is defined
+    #     fail_msg: "Please make sure your mandatory variables are set"
+    #     success_msg: "All mandatory variables have been set"
 
     - name: Get Demo instances we care about
       register: instance_info
