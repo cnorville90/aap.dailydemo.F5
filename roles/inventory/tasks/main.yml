@@ -26,7 +26,7 @@
     - name: Create a new token using username/password
       ansible.controller.token:
         controller_host: https://{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}
-        usernamename: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
+        username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
         controller_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
         validate_certs: false
         description: Daily Demo token
