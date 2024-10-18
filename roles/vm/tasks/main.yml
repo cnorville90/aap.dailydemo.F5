@@ -1,8 +1,9 @@
 ---
 - name: Creating a vm with Inc managment in the case of failure
   tags:
-    - createvm
+    - create
   block:
+
     - name: Looking up Subnet_id
       register: subnet_id
       amazon.aws.ec2_vpc_subnet_info:
@@ -98,8 +99,9 @@
 
 - name: Removing our F5 vm
   tags:
-    - removevm
+    - remove
   block:
+
     - name: Get instances id with appropriate Environment tag
       register: instance_info
       amazon.aws.ec2_instance_info:
