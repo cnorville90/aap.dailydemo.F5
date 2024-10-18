@@ -32,48 +32,19 @@ ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 
 Tags used:
 ```
-createvpc
-createvm
-inventoryadd
+create
 ```
 [2. Remove the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-remove.yml "f5-remove.yml")<br>
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5remove.png "Remove")<br>
 
 Tags used:
 ```
-removevpc
-removevm
-inventorydel
+remove
 ```
 
 **The Credentials Types**
 
-Ansible Controller Credential<br>
-Input configuration
-```
-fields:
-  - id: url
-    type: string
-    label: Controller URL
-  - id: user
-    type: string
-    label: Controller Username
-  - id: password
-    type: string
-    label: Controller Password
-    secret: true
-required:
-  - url
-  - user
-  - password
-```
-Injector configuration
-```
-extra_vars:
-  controller_url: '{{url}}'
-  controller_user: '{{user}}'
-  controller_passwd: '{{password}}'
-```
+Red Hat Ansible Automation Platform<br>
 Daily Demo F5 Machine Credential<br>
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5machinecred.png "Machine Credential")<br>
 
