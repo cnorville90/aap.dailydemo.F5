@@ -13,9 +13,9 @@ Role Variables
 ```
 inventory_vm_name: F5 Daily Demo
 # Use a custom credential for this
-# host: example.com
-# username: mickey.mouse
-# password: password
+# CONTROLLER_HOST: example.com
+# CONTROLLER_USERNAME: mickey.mouse
+# CONTROLLER_PASSWORD: password
 inventory_managed_inventory_name: AAP Managed Inventory
 inventory_region: us-west-1
 ansible_python_interpreter: /usr/bin/python3

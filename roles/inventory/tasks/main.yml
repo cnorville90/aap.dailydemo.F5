@@ -8,9 +8,9 @@
       # You can create a custom credential for the mandatory variables
       ansible.builtin.assert:
         that:
-          - host is defined
-          - username is defined
-          - password is defined
+          - CONTROLLER_HOST is defined
+          - CONTROLLER_USERNAME is defined
+          - CONTROLLER_PASSWORD is defined
         fail_msg: "Please make sure your mandatory variables are set"
         success_msg: "All mandatory variables have been set"
 
@@ -24,9 +24,9 @@
 
     - name: Create a new token using username/password
       ansible.controller.token:
-        controller_host: https://{{ host }}
-        usernamename: "{{ username }}"
-        controller_password: "{{ password }}"
+        controller_host: https://{{ CONTROLLER_HOST }}
+        usernamename: "{{ CONTROLLER_USERNAME }}"
+        controller_password: "{{ CONTROLLER_PASSWORD }}"
         validate_certs: false
         description: Daily Demo token
         scope: write
@@ -40,7 +40,7 @@
     - name: Update the AAP Managed Inventory
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.host:
-        controller_host: https://{{ host }}
+        controller_host: https://{{ CONTROLLER_HOST }}
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
@@ -53,7 +53,7 @@
     - name: Create a group
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.group:
-        controller_host: https://{{ host }}
+        controller_host: https://{{ CONTROLLER_HOST }}
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: f5demo
@@ -79,7 +79,7 @@
     - name: Remove vm from the inventory
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.host:
-        controller_host: https://{{ host }}
+        controller_host: https://{{ CONTROLLER_HOST }}
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
@@ -90,7 +90,7 @@
       loop:
         - f5demo
       ansible.controller.group:
-        controller_host: https://{{ host }}
+        controller_host: https://{{ CONTROLLER_HOST }}
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
         name: "{{ item }}"
