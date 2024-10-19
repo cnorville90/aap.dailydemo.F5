@@ -4,44 +4,50 @@
 
   tasks:
 
-    - name: Creating the F5 Daily Demo
+    - name: Include the vpc role
       tags:
         - create
-      block:
+      ansible.builtin.include_role:
+        name: vpc
 
-        - name: Include the vpc role
-          ansible.builtin.include_role:
-            name: vpc
+    - name: Include the vm role
+      tags:
+        - create
+      ansible.builtin.include_role:
+        name: vm
 
-        - name: Include the vm role
-          ansible.builtin.include_role:
-            name: vm
+    - name: Include the inventory role
+      tags:
+        - create
+      ansible.builtin.include_role:
+        name: inventory
 
-        - name: Include the inventory role
-          ansible.builtin.include_role:
-            name: inventory
+    - name: F5 User Interface
+      tags:
+        - create
+      ansible.builtin.debug:
+        msg: "https://{{ ec2_vms.instances[0].public_dns_name }}:8443"
 
-        - name: F5 User Interface
-          ansible.builtin.debug:
-            msg: "https://{{ ec2_vms.instances[0].public_dns_name }}:8443"
+    - name: F5 IP Address
+      tags:
+        - create
+      ansible.builtin.debug:
+        msg: "{{ ec2_vms.instances[0].public_ip_address }}"
 
-        - name: F5 IP Address
-          ansible.builtin.debug:
-            msg: "{{ ec2_vms.instances[0].public_ip_address }}"
-
-    - name: Removing the F5 Daily Demo
+    - name: Include the vm role
       tags:
         - remove
-      block:
+      ansible.builtin.include_role:
+        name: vm
 
-        - name: Include the vm role
-          ansible.builtin.include_role:
-            name: vm
+    - name: Include the vpc role
+      tags:
+        - remove
+      ansible.builtin.include_role:
+        name: vpc
 
-        - name: Include the vpc role
-          ansible.builtin.include_role:
-            name: vpc
-
-        - name: Include the inventory role
-          ansible.builtin.include_role:
-            name: inventory
+    - name: Include the inventory role
+      tags:
+        - remove
+      ansible.builtin.include_role:
+        name: inventory
