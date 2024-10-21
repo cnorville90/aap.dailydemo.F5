@@ -72,6 +72,14 @@
         groups:
           - f5demo
 
+    - name: Remove my F5 token
+      ansible.controller.token:
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        controller_oauthtoken: "{{ controller_token }}"
+        existing_token: "{{ controller_token }}"
+        validate_certs: false
+        state: absent
+
 - name: Removing our vm from our inventory
   tags:
     - remove
@@ -102,6 +110,6 @@
       ansible.controller.token:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
+        existing_token: "{{ controller_token }}"
         validate_certs: false
-        description: F5 Daily Demo token
         state: absent
