@@ -25,20 +25,15 @@ Example login using your ssh key that was shared with Amazon
 ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 ```
 
-**The playbooks**
+**The playbook**
 
-[1. Create the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-create.yml "f5-create.yml")<br>
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5create.png "Create")<br>
+[1. Create and Delete F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/main.yml "main.yml")<br>
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5job.png "Create")<br>
 
 Tags used:
 ```
 create
-```
-[2. Remove the F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/f5-remove.yml "f5-remove.yml")<br>
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5remove.png "Remove")<br>
-
-Tags used:
-```
+  or
 remove
 ```
 
@@ -47,7 +42,6 @@ remove
 Red Hat Ansible Automation Platform<br>
 Daily Demo F5 Machine Credential<br>
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5machinecred.png "Machine Credential")<br>
-
 Amazon Web Services Credential<br>
 
 **The AAP Managed Inventory**
