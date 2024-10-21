@@ -29,7 +29,7 @@
         controller_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
         controller_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
         validate_certs: false
-        description: Daily Demo token
+        description: F5 Daily Demo token
         scope: write
         state: present
 
@@ -96,4 +96,12 @@
         validate_certs: false
         name: "{{ item }}"
         inventory: "{{ inventory_managed_inventory_name }}"
+        state: absent
+
+    - name: Remove my F5 token
+      ansible.controller.token:
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        controller_oauthtoken: "{{ controller_token }}"
+        validate_certs: false
+        description: F5 Daily Demo token
         state: absent
