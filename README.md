@@ -53,6 +53,9 @@ Group name
 f5demo
 ```
 
+**The Cleanup Schedule**
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5cleanup.png "F5 Daily Demo Cleanup")<br>
+
 Day 2
 =========
 
