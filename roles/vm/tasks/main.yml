@@ -70,10 +70,6 @@
         search_regex: OpenSSH
         delay: 10
 
-    - name: Print
-      debug:
-        var: ec2_eips
-
     - name: Wait for things to come up
       ansible.builtin.pause:
         seconds: 60
@@ -92,14 +88,6 @@
         command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_eips.results[0].item.public_dns_name }} save sys config"
         responses:
           "saving ...done":
-
-    - name: URL for the new F5
-      ansible.builtin.debug:
-        msg: "https://{{ ec2_eips.results[0].item.public_dns_name }}:8443"
-
-    - name: Public IP for the new f5
-      ansible.builtin.debug:
-        msg: "{{ ec2_eips.results[0].item.public_ip_address }}"
 
   rescue:
 
