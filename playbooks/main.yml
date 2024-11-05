@@ -22,19 +22,23 @@
       ansible.builtin.include_role:
         name: inventory
 
-    - name: F5 User Interface
+    - name: Get instance info
       loop: "{{ instance_info['instances'] }}"
+      ansible.builtin.set_fact:
+        public_dns_name: "{{ item['public_dns_name'] }}"
+        public_ip_address: "{{ item['public_ip_address'] }}"
+
+    - name: F5 User Interface
       tags:
         - create
       ansible.builtin.debug:
-        msg: "https://{{ item['public_dns_name'] }}:8443"
+        msg: "https://{{ public_dns_name }}:8443"
 
     - name: F5 IP Address
-      loop: "{{ instance_info['instances'] }}"
       tags:
         - create
       ansible.builtin.debug:
-        msg: "{{ item['public_ip_address'] }}"
+        msg: "{{ public_ip_address }}"
 
     - name: Include the vm role
       tags:
