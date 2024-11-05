@@ -93,6 +93,7 @@
             - "{{ password }}"
 
     - name: Save the running config
+      loop: "{{ instance_info['instances'] }}"
       ansible.builtin.expect:
         command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ item['public_dns_name'] }} save sys config"
         responses:
