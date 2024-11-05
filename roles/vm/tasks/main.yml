@@ -51,7 +51,7 @@
       loop: "{{ ec2_vms['instances'] }}"
       amazon.aws.ec2_eip:
         device_id: "{{ item['instance_id'] }}"
-        region: "{{ region }}"
+        region: "{{ vm_region }}"
         tag_name: reserved_for
         tag_value: "{{ item['instance_id'] }}"
         release_on_disassociation: true
