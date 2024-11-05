@@ -83,8 +83,9 @@
           instance-state-name: [running]
 
     - name: Set the initial admin password
+      loop: "{{ instance_info['instances'] }}"
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ instance_info[0].public_dns_name }} modify auth user admin prompt-for-password"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ item['public_dns_name'] }} modify auth user admin prompt-for-password"
         responses:
           "new password:":
             - "{{ password }}"
@@ -93,7 +94,7 @@
 
     - name: Save the running config
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ instance_info[0].public_dns_name }} save sys config"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ item['public_dns_name'] }} save sys config"
         responses:
           "saving ...done":
 
