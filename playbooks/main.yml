@@ -23,6 +23,8 @@
         name: inventory
 
     - name: Get instance info
+      tags:
+        - create
       loop: "{{ instance_info['instances'] }}"
       ansible.builtin.set_fact:
         public_dns_name: "{{ item['public_dns_name'] }}"
