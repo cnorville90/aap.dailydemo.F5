@@ -46,9 +46,38 @@
         search_regex: OpenSSH
         delay: 10
 
+    - name: Ensure we have an elastic ip for each controller
+      register: ec2_eips
+      loop: "{{ ec2_vms['instances'] }}"
+      amazon.aws.ec2_eip:
+        device_id: "{{ item['instance_id'] }}"
+        region: "{{ region }}"
+        tag_name: reserved_for
+        tag_value: "{{ item['instance_id'] }}"
+        release_on_disassociation: true
+        tags:
+          Environment: "{{ environment_name }}"
+          AlwaysUp: "{{ alwaysup }}"
+          Createdby: Ansible Controller
+          Createfor: F5 Daily Demo
+          Contact: "{{ my_email_address }}"
+          DeletebBy: "{{ ec2_ansible_group }}"
+
+    - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
+      loop: "{{ ec2_eips['results'] }}"
+      ansible.builtin.wait_for:
+        port: 22
+        host: "{{ item['public_ip'] }}"
+        search_regex: OpenSSH
+        delay: 10
+
+    - name: Print
+      debug:
+        var: ec2_eips
+
     - name: Wait for things to come up
       ansible.builtin.pause:
-        seconds: 60
+        seconds: 300
 
     - name: Set the initial admin password
       ansible.builtin.expect:
