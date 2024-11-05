@@ -76,11 +76,11 @@
 
     - name: Wait for things to come up
       ansible.builtin.pause:
-        seconds: 300
+        seconds: 60
 
     - name: Set the initial admin password
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_vms.instances[0].public_dns_name }} modify auth user admin prompt-for-password"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_eips.results[0].item.public_dns_name }} modify auth user admin prompt-for-password"
         responses:
           "new password:":
             - "{{ password }}"
@@ -89,17 +89,17 @@
 
     - name: Save the running config
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_vms.instances[0].public_dns_name }} save sys config"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_eips.results[0].item.public_dns_name }} save sys config"
         responses:
           "saving ...done":
 
     - name: URL for the new F5
       ansible.builtin.debug:
-        msg: "https://{{ ec2_vms.instances[0].public_dns_name }}:8443"
+        msg: "https://{{ ec2_eips.results[0].item.public_dns_name }}:8443"
 
     - name: Public IP for the new f5
       ansible.builtin.debug:
-        msg: "{{ ec2_vms.instances[0].public_ip_address }}"
+        msg: "{{ ec2_eips.results[0].item.public_ip_address }}"
 
   rescue:
 
@@ -145,3 +145,22 @@
         region: "{{ vm_region }}"
         state: absent
         instance_ids: "{{ item['instance_id'] }}"
+
+    - name: Get elastic ip addresses
+      register: eip_info
+      amazon.aws.ec2_eip_info:
+        region: "{{ vm_region }}"
+        filters:
+          tag:Environment: "{{ vm_vpc_name }}"
+          tag:Contact: "{{ vm_my_email_address }}"
+
+    - name: Print
+      ansible.builtin.debug:
+        var: eip_info
+
+    - name: Deleteing elastic ip addresses
+      loop: "{{ eip_info['addresses'] }}"
+      amazon.aws.ec2_eip:
+        region: "{{ vm_region }}"
+        state: absent
+        ip: "{{ item['public_ip'] }}"
