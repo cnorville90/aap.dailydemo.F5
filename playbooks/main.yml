@@ -24,6 +24,7 @@
 
     - name: F5 User Interface
       loop: "{{ instance_info['instances'] }}"
+      no_log: true
       tags:
         - create
       ansible.builtin.debug:
