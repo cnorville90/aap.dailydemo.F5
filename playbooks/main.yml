@@ -26,13 +26,13 @@
       tags:
         - create
       ansible.builtin.debug:
-        msg: "https://{{ ec2_eips.results[0].item.public_dns_name }}:8443"
+        msg: "https://{{ instance_info[0].public_dns_name }}:8443"
 
     - name: F5 IP Address
       tags:
         - create
       ansible.builtin.debug:
-        msg: "{{ ec2_eips.results[0].item.public_ip_address }}"
+        msg: "{{ instance_info[0].public_ip_address }}"
 
     - name: Include the vm role
       tags:

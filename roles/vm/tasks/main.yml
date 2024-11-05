@@ -74,9 +74,17 @@
       ansible.builtin.pause:
         seconds: 60
 
+    - name: Get Demo instances we care about
+      register: instance_info
+      amazon.aws.ec2_instance_info:
+        region: "{{ vm_region }}"
+        filters:
+          tag:Name: "{{ vm_name }}"
+          instance-state-name: [running]
+
     - name: Set the initial admin password
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_eips.results[0].item.public_dns_name }} modify auth user admin prompt-for-password"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ instance_info[0].public_dns_name }} modify auth user admin prompt-for-password"
         responses:
           "new password:":
             - "{{ password }}"
@@ -85,7 +93,7 @@
 
     - name: Save the running config
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ ec2_eips.results[0].item.public_dns_name }} save sys config"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ instance_info[0].public_dns_name }} save sys config"
         responses:
           "saving ...done":
 

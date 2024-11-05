@@ -49,7 +49,7 @@
         state: present
         enabled: true
         variables:
-          F5_mgmt_ip: "{{ ec2_vms.instances[0].public_ip_address }}"
+          F5_mgmt_ip: "{{ item['public_ip_address'] }}"
 
     - name: Create a group
       loop: "{{ instance_info['instances'] }}"
