@@ -6,3 +6,5 @@ collections:
     version: 3.7.0
   - name: ansible.netcommon
     version: 7.1.0
+  - name: infra.controller_configuration
+    version: 2.11.0

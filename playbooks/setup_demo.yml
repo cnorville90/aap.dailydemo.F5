@@ -1,0 +1,19 @@
+- name: Setup demo
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+
+    - name: Include configurations
+      ansible.builtin.include_vars: config_as_code/config.yml
+
+    - name: Demo Components
+      vars:
+        controller_dependency_check: false  # noqa: var-naming[no-role-prefix]
+      ansible.builtin.include_role:
+        name: infra.controller_configuration.dispatch
+
+    - name: Print Message
+      when: user_message is defined
+      ansible.builtin.debug:
+        msg: "{{ user_message }}"
