@@ -82,10 +82,15 @@
           tag:Name: "{{ vm_name }}"
           instance-state-name: [running]
 
-    - name: Set the initial admin password
+    - name: Get instance info
       loop: "{{ instance_info['instances'] }}"
+      ansible.builtin.set_fact:
+        public_dns_name: "{{ item['public_dns_name'] }}"
+        public_ip_address: "{{ item['public_ip_address'] }}"
+
+    - name: Set the initial admin password
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ item['public_dns_name'] }} modify auth user admin prompt-for-password"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ public_dns_name }} modify auth user admin prompt-for-password"
         responses:
           "new password:":
             - "{{ password }}"
@@ -93,9 +98,8 @@
             - "{{ password }}"
 
     - name: Save the running config
-      loop: "{{ instance_info['instances'] }}"
       ansible.builtin.expect:
-        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ item['public_dns_name'] }} save sys config"
+        command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ public_dns_name }} save sys config"
         responses:
           "saving ...done":
 
