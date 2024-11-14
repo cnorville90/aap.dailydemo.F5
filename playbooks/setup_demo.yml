@@ -11,7 +11,7 @@
       vars:
         controller_dependency_check: false  # noqa: var-naming[no-role-prefix]
       ansible.builtin.include_role:
-        name: infra.controller_configuration.dispatch
+        name: infra.aap_configuration.dispatch
 
     - name: Print Message
       when: user_message is defined
