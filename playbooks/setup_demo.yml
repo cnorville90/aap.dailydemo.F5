@@ -2,10 +2,17 @@
   hosts: localhost
   gather_facts: false
 
+  vars:
+    aap_validate_certs: true
+    aap_hostname: ericames.ddns.net
+
+  vars_files:
+    - files/secrets.yml
+
   tasks:
 
     - name: Include configurations
-      ansible.builtin.include_vars: ../config_as_code/config.yml
+      ansible.builtin.include_vars: files/config_as_code/config.yml
 
     - name: Demo Components
       vars:
