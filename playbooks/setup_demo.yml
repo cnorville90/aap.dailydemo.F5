@@ -5,7 +5,7 @@
   tasks:
 
     - name: Include configurations
-      ansible.builtin.include_vars: config_as_code/config.yml
+      ansible.builtin.include_vars: ../config_as_code/config.yml
 
     - name: Demo Components
       vars:
