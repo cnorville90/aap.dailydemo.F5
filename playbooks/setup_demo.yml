@@ -9,7 +9,7 @@
 
     - name: Demo Components
       vars:
-        controller_dependency_check: false  # noqa: var-naming[no-role-prefix]
+        meta_dependency_check: false  # noqa: var-naming[no-role-prefix]
       ansible.builtin.include_role:
         name: infra.aap_configuration.dispatch
 
