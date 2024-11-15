@@ -4,6 +4,7 @@ user_message:
 
 controller_projects:
   - name: F5_examples
+    new_name: mlowcher_F5_examples
     organization: Ames Company
     scm_type: git
     wait: true
