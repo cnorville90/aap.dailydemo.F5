@@ -6,3 +6,5 @@ controller_schedules:
     unified_job_template: 	Daily Demo F5
     state: present
     job_tags: remove
+    extra_data:
+      password: "{{ admin_password }}"
