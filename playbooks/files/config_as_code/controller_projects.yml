@@ -1,11 +1,12 @@
 ---
 user_message:
   - Hello World
+my_organization: "Ames Company"
 
 controller_projects:
   - name: F5_examples
     new_name: mlowcher_F5_examples
-    organization: Ames Company
+    organization: "{{ my_organization }}"
     scm_type: git
     wait: true
     scm_url: https://gitlab.com/mlowcher/F5_examples.git

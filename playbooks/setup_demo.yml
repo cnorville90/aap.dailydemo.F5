@@ -28,7 +28,8 @@
         state: present
 
     - name: Include configurations
-      ansible.builtin.include_vars: files/config_as_code/config.yml
+      ansible.builtin.include_vars:
+        dir: files/config_as_code
 
     - name: Demo Components
       vars:
