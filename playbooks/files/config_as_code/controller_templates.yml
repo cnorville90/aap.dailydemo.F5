@@ -18,9 +18,7 @@ controller_templates:
     project: aap.dailydemo.f5
     playbook: playbooks/main.yml
     ask_tags_on_launch: true
-    job_tags:
-      - create
-      - remove
+    job_tags: create,remove
     credentials:
       - Daily Demo F5
       - AWS Credential
