@@ -1,12 +1,102 @@
 ---
 controller_templates:
-  - name: 0 bigip facts
+  - name: 0_bigip_facts
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
     execution_environment: Default execution environment
     project: mlowcher_F5_examples
     playbook: 0_bigip_facts.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 1_bigip_cert_key_import
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 1_bigip_cert_key_import.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 2_client_ssl_profile
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 2_client_ssl_profile.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 2_create_http_profile
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 2_create_http_profile.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 2_create_tcp_profile
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 2_create_tcp_profile.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 3_bigip_pool_and_members
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 3_bigip_pool_and_members.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 4_bigip_virtual_server
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 4_bigip_virtual_server.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 6_bigip_delete_pool
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 6_bigip_delete_pool.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 6_bigip_delete_virtual
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 6_bigip_delete_virtual.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 6_delete_bigip_cert_key.yml
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 6_delete_bigip_cert_key.yml
     credentials:
       - Daily Demo F5 Network
 
