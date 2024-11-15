@@ -8,9 +8,9 @@
       # You can create a custom credential for the mandatory variables
       ansible.builtin.assert:
         that:
-          - controller_url is defined
-          - controller_user is defined
-          - controller_passwd is defined
+          - controller_host is defined
+          - controller_username is defined
+          - controller_password is defined
         fail_msg: "Please make sure your mandatory variables are set"
         success_msg: "All mandatory variables have been set"
 
