@@ -1,0 +1,8 @@
+---
+controller_schedules:
+  - name: Daily Demo F5 auto delete
+    description: Schedule to run the demo playbook once a day at 6:00 pm
+    rrule: DTSTART:20230101T180000Z RRULE:FREQ=DAILY;INTERVAL=1
+    unified_job_template: 	Daily Demo F5
+    state: present
+    job_tags: remove
