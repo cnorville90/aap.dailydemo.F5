@@ -4,8 +4,7 @@ user_message:
 my_organization: "Ames Company"
 
 controller_projects:
-  - name: F5_examples
-    new_name: mlowcher_F5_examples
+  - name: mlowcher_F5_examples
     organization: "{{ my_organization }}"
     scm_type: git
     wait: true
