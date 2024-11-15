@@ -9,3 +9,19 @@ controller_templates:
     playbook: 0_bigip_facts.yml
     credentials:
       - Daily Demo F5 Network
+
+  - name: Daily Demo F5
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: aap.dailydemo.f5
+    playbook: playbooks/main.yml
+    ask_tags_on_launch: true
+    job_tags:
+      - create
+      - remove
+    credentials:
+      - Daily Demo F5
+      - AWS Credential
+      - ericames.ddns.net - controller
