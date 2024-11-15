@@ -1,7 +1,6 @@
 ---
 user_message:
   - Hello World
-my_organization: "Ames Company"
 
 controller_projects:
   - name: mlowcher_F5_examples

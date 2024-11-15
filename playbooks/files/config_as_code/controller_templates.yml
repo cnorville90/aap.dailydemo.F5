@@ -1,0 +1,11 @@
+---
+controller_templates:
+  - name: 0 bigip facts
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: mlowcher_F5_examples
+    playbook: 0_bigip_facts.yml
+    credentials:
+      - Daily Demo F5 Network
