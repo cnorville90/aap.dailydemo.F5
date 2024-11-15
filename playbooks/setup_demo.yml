@@ -1,6 +1,8 @@
 - name: Setup demo
   hosts: localhost
   gather_facts: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
   tasks:
 
