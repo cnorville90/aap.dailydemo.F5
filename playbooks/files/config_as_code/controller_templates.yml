@@ -113,3 +113,5 @@ controller_templates:
       - Daily Demo F5
       - AWS Credential
       - ericames.ddns.net - controller
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/basic_survey.json') | regex_replace('\\n', '') }}"
