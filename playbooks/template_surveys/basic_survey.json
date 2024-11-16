@@ -12,7 +12,7 @@
         "new_question": true,
         "variable": "password",
         "question_name": "What is your admin password?",
-        "type": "Password"
+        "type": "password"
       }
     ]
   }
