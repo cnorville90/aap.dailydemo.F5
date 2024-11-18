@@ -10,7 +10,7 @@ controller_templates:
     credentials:
       - Daily Demo F5 Network
 
-  - name: "F5 -1 - AWS -Import certificate and key"
+  - name: "F5 -1- AWS -Import certificate and key"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
@@ -34,7 +34,7 @@ controller_templates:
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/F5-2-AWS-Create_custom_clientssl.json') | regex_replace('\\n', '') }}"
 
-  - name: "F5 -2 - AWS -Add custom HTTP profile"
+  - name: "F5 -2- AWS -Add custom HTTP profile"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
