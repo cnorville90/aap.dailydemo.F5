@@ -1,0 +1,42 @@
+{
+    "name": "F5-6-AWS-Delete_certificate_and_key",
+    "description": "Basic Survey",
+    "spec": [
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "cool.key",
+        "max": 1024,
+        "required": true,
+        "choices": "",
+        "new_question": true,
+        "variable": "key_name",
+        "question_name": "Type the name of the imported key",
+        "type": "text"
+      },
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "absent",
+        "max": 0,
+        "required": true,
+        "choices": "present\nabsent",
+        "new_question": true,
+        "variable": "state",
+        "question_name": "Add or remove",
+        "type": "multiplechoice"
+      },
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "cool.crt",
+        "max": 1024,
+        "required": true,
+        "choices": "",
+        "new_question": true,
+        "variable": "cert.name",
+        "question_name": "Type name of imported key",
+        "type": "text"
+      }
+    ]
+  }

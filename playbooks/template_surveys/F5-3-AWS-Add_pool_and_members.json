@@ -1,0 +1,18 @@
+{
+    "name": "F5-3-AWS-Add_pool_and_members",
+    "description": "Basic Survey",
+    "spec": [
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "present",
+        "max": 0,
+        "required": true,
+        "choices": "present\nabsent",
+        "new_question": true,
+        "variable": "state",
+        "question_name": "Add or remove",
+        "type": "multiplechoice"
+      }
+    ]
+  }

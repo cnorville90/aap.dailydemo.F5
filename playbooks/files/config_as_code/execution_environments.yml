@@ -1,0 +1,6 @@
+---
+controller_execution_environments:
+  - name: F5_ee
+    image: quay.io/locust61/f5_ee:0.1
+    pull: missing
+    organization: "{{ my_organization }}"

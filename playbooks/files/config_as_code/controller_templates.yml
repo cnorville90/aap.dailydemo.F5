@@ -1,84 +1,131 @@
 ---
 controller_templates:
   - name: 0_bigip_facts
+    new_name: "F5 -0- AWS -Gather specific facts"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 0_bigip_facts.yml
     credentials:
       - Daily Demo F5 Network
 
   - name: 1_bigip_cert_key_import
+    new_name: "F5 -1 - AWS -Import certificate and key"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 1_bigip_cert_key_import.yml
     credentials:
       - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-1-AWS-Import_cert_and_key.json') | regex_replace('\\n', '') }}"
 
   - name: 2_client_ssl_profile
+    new_name: "F5 -2- AWS -Create custom clientssl"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 2_client_ssl_profile.yml
     credentials:
       - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-2-AWS-Create_custom_clientssl.json') | regex_replace('\\n', '') }}"
+
 
   - name: 2_create_http_profile
+    new_name: "F5 -2 - AWS -Add custom HTTP profile"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 2_create_http_profile.yml
     credentials:
       - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-2-AWS-Add_custom_HTTP_profile.json') | regex_replace('\\n', '') }}"
+
 
   - name: 2_create_tcp_profile
+    new_name: "F5 -2- AWS -Create custom TCP profile"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 2_create_tcp_profile.yml
     credentials:
       - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-2-AWS-Create_custom_TCP_profile.json') | regex_replace('\\n', '') }}"
 
-  - name: 3_bigip_pool_and_members
+  - name: "F5 -2- AWS -Disable pool member"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
+    project: mlowcher_F5_examples
+    playbook: disable_pool_member.yml
+    credentials:
+      - Daily Demo F5 Network
+
+  - name: 3_bigip_pool_and_members
+    new_name: "F5 -3- AWS -Add pool and members"
+    description: "will add ec2 pool members with tag ml_demo"
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 3_bigip_pool_and_members.yml
     credentials:
       - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-3-AWS-Add_pool_and_members.json') | regex_replace('\\n', '') }}"
 
   - name: 4_bigip_virtual_server
+    new_name: "F5 -4- AWS -Create VIP"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 4_bigip_virtual_server.yml
     credentials:
       - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-4-AWS-Create_VIP.json') | regex_replace('\\n', '') }}"
 
   - name: 6_bigip_delete_pool
+    new_name: "F5 -6- AWS -Delete pool"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 6_bigip_delete_pool.yml
     credentials:
       - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_pool.json') | regex_replace('\\n', '') }}"
+
+  - name: F5 -6- AWS -Delete custom TCP profile
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: F5_ee
+    project: mlowcher_F5_examples
+    playbook: 2_create_tcp_profile.yml
+    credentials:
+      - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_custom_TCP_profile.json') | regex_replace('\\n', '') }}"
 
   - name: 6_bigip_delete_virtual
     job_type: run
@@ -91,6 +138,7 @@ controller_templates:
       - Daily Demo F5 Network
 
   - name: 6_delete_bigip_cert_key.yml
+    new_name: "F5 -6- AWS -Delete certificate and key"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
@@ -99,6 +147,9 @@ controller_templates:
     playbook: 6_delete_bigip_cert_key.yml
     credentials:
       - Daily Demo F5 Network
+      - "{{ my_vault }}"
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_certificate_and_key.json') | regex_replace('\\n', '') }}"
 
   - name: Daily Demo F5
     job_type: run

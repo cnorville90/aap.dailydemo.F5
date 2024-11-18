@@ -1,0 +1,30 @@
+{
+    "name": "F5-2-AWS-Create_custom_clientssl",
+    "description": "Basic Survey",
+    "spec": [
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "cool_clientssl",
+        "max": 1024,
+        "required": true,
+        "choices": "",
+        "new_question": true,
+        "variable": "profile_name",
+        "question_name": "Provide a name for the clientssl profile",
+        "type": "text"
+      },
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "present",
+        "max": 0,
+        "required": true,
+        "choices": "present\nabsent",
+        "new_question": true,
+        "variable": "state",
+        "question_name": "Add or remove",
+        "type": "multiplechoice"
+      }
+    ]
+  }
