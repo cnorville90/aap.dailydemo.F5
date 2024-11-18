@@ -4,6 +4,7 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
     my_organization: "Ames Company"
+    my_vault: "ericames-vault"
 
   tasks:
 
