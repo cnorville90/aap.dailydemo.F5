@@ -104,3 +104,32 @@ controller_workflows:
             organization:
               name: "{{ my_organization }}"
             type: job_template
+
+-   name: workflow - 6 - Remove web app from F5 on AWS
+    organization: "{{ my_organization }}"
+    related:
+      workflow_nodes:
+      -   identifier: "F5 -6- AWS -Delete VIP"
+          related:
+            success_nodes:
+            -   identifier: "F5 -6- AWS -Delete pool"
+          unified_job_template:
+            name: "F5 -6- AWS -Delete VIP"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
+      -   identifier: "F5 -6- AWS -Delete pool"
+          related:
+            success_nodes:
+            -   identifier: "workflow - F5-6-AWS delete custom profiles"
+          unified_job_template:
+            name: "F5 -6- AWS -Delete pool"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
+      -   identifier: "workflow - F5-6-AWS delete custom profiles"
+          unified_job_template:
+              name: "workflow - F5-6-AWS delete custom profiles"
+              organization:
+                name: "{{ my_organization }}"
+              type: workflow_job_template
