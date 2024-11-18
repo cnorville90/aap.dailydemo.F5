@@ -66,3 +66,41 @@ controller_workflows:
             organization:
               name: "{{ my_organization }}"
             type: job_template
+
+-   name: "workflow - F5-6-AWS delete custom profiles"
+    organization: "{{ my_organization }}"
+    related:
+      workflow_nodes:
+      -   identifier: "F5 -6- AWS -Delete custom clientssl"
+          related:
+            success_nodes:
+            -   identifier: "F5 -6- AWS -Delete custom HTTP profile"
+          unified_job_template:
+              name: "F5 -6- AWS -Delete custom clientssl"
+              organization:
+                name: "{{ my_organization }}"
+              type: job_template
+      -   identifier: "F5 -6- AWS -Delete custom HTTP profile"
+          related:
+            success_nodes:
+            -   identifier: "F5 -6- AWS -Delete custom TCP profile"
+          unified_job_template:
+            name: "F5 -6- AWS -Delete custom HTTP profile"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
+      -   identifier: "F5 -6- AWS -Delete custom TCP profile"
+          related:
+            success_nodes:
+            -   identifier: "F5 -6- AWS -Delete certificate and key"
+          unified_job_template:
+            name: "F5 -6- AWS -Delete custom TCP profile"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
+      -   identifier: "F5 -6- AWS -Delete certificate and key"
+          unified_job_template:
+            name: "F5 -6- AWS -Delete certificate and key"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
