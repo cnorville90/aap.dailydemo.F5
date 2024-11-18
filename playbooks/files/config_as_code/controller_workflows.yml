@@ -37,3 +37,32 @@ controller_workflows:
             organization:
               name: "{{ my_organization }}"
             type: job_template
+
+-   name: workflow - 0 - Deploy web app on F5 in AWS
+    organization: "{{ my_organization }}"
+    related:
+      workflow_nodes:
+      -   identifier: "workflow - F5-0-AWS Add custom profiles"
+          related:
+            success_nodes:
+            -   identifier: "F5 -3- AWS -Add pool and members"
+          unified_job_template:
+              name: "workflow - F5-0-AWS Add custom profiles"
+              organization:
+                name: "{{ my_organization }}"
+              type: worflow_job_template
+      -   identifier: "F5 -3- AWS -Add pool and members"
+          related:
+            success_nodes:
+            -   identifier: "F5 -4- AWS -Create VIP"
+          unified_job_template:
+            name: "F5 -3- AWS -Add pool and members"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
+      -   identifier: "F5 -4- AWS -Create VIP"
+          unified_job_template:
+            name: "F5 -4- AWS -Create VIP"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
