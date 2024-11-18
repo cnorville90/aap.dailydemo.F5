@@ -127,22 +127,12 @@ controller_templates:
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_custom_TCP_profile.json') | regex_replace('\\n', '') }}"
 
-  - name: 6_bigip_delete_virtual
-    job_type: run
-    inventory: AAP Managed Inventory
-    organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
-    project: mlowcher_F5_examples
-    playbook: 6_bigip_delete_virtual.yml
-    credentials:
-      - Daily Demo F5 Network
-
   - name: 6_delete_bigip_cert_key.yml
     new_name: "F5 -6- AWS -Delete certificate and key"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
-    execution_environment: Default execution environment
+    execution_environment: F5_ee
     project: mlowcher_F5_examples
     playbook: 6_delete_bigip_cert_key.yml
     credentials:
@@ -151,7 +141,57 @@ controller_templates:
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_certificate_and_key.json') | regex_replace('\\n', '') }}"
 
+  - name: 4_bigip_virtual_server
+    new_name: "F5 -6- AWS -Delete VIP"
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: F5_ee
+    project: mlowcher_F5_examples
+    playbook: 4_bigip_virtual_server.yml
+    credentials:
+      - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_VIP.json') | regex_replace('\\n', '') }}"
+
+  - name: "F5 -6- AWS -Delete custom clientssl"
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: F5_ee
+    project: mlowcher_F5_examples
+    playbook: 2_client_ssl_profile.yml
+    credentials:
+      - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_custom_clientssl.json') | regex_replace('\\n', '') }}"
+
+  - name: F5 -6- AWS -Delete custom HTTP profile
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: F5_ee
+    project: mlowcher_F5_examples
+    playbook: 2_create_http_profile.yml
+    credentials:
+      - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_custom_HTTP_profile.json') | regex_replace('\\n', '') }}"
+
+  - name: F5 -7- AWS -Change admin password
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: F5_ee
+    project: mlowcher_F5_examples
+    playbook: change_admin_passwd.yml
+    credentials:
+      - Daily Demo F5 Network
+    survey_enabled: true
+    survey: "{{ lookup('template', 'template_surveys/F5-7-Change_admin_password.json') | regex_replace('\\n', '') }}"
+
   - name: Daily Demo F5
+    new_name: "Daily Demo F5 Create/Remove"
     job_type: run
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
@@ -163,6 +203,6 @@ controller_templates:
     credentials:
       - Daily Demo F5
       - AWS Credential
-      - ericames.ddns.net - controller
+      - "{{ my_rh_aap_credential }}"
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/basic_survey.json') | regex_replace('\\n', '') }}"

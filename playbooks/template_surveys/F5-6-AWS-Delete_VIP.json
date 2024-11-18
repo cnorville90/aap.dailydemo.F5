@@ -1,0 +1,30 @@
+{
+    "name": "F5-6-AWS-Delete_VIP",
+    "description": "Basic Survey",
+    "spec": [
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "my_cool_vip",
+        "max": 1024,
+        "required": true,
+        "choices": "",
+        "new_question": true,
+        "variable": "vs_name",
+        "question_name": "Provide a name for the virtual server",
+        "type": "text"
+      },
+      {
+        "question_description": "",
+        "min": 0,
+        "default": "absent",
+        "max": 0,
+        "required": true,
+        "choices": "present\nabsent",
+        "new_question": true,
+        "variable": "state",
+        "question_name": "Add or remove",
+        "type": "multiplechoice"
+      }
+    ]
+  }

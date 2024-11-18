@@ -5,6 +5,7 @@
     ansible_python_interpreter: /usr/bin/python3
     my_organization: "Ames Company"
     my_vault: "ericames-vault"
+    my_rh_aap_credential: "ericames.ddns.net - controller"
 
   tasks:
 
