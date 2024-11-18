@@ -31,9 +31,9 @@ controller_workflows:
             organization:
               name: "{{ my_organization }}"
             type: job_template
-      -   identifier: "F5 -2 - AWS -Add custom HTTP profile"
+      -   identifier: "F5 -2- AWS -Add custom HTTP profile"
           unified_job_template:
-            name: "F5 -2 - AWS -Add custom HTTP profile"
+            name: "F5 -2- AWS -Add custom HTTP profile"
             organization:
               name: "{{ my_organization }}"
             type: job_template
