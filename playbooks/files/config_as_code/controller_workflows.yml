@@ -1,0 +1,38 @@
+---
+-   name: "workflow - F5-0-AWS Add custom profiles"
+    organization: "{{ my_organization }}"
+    related:
+      workflow_nodes:
+      -   identifier: "F5 -1 - AWS -Import certificate and key"
+          related:
+            success_nodes:
+            -   identifier: "F5 -2- AWS -Create custom clientssl"
+          unified_job_template:
+              name: "F5 -1 - AWS -Import certificate and key"
+              organization:
+                name: "{{ my_organization }}"
+              type: job_template
+      -   identifier: "F5 -2- AWS -Create custom clientssl"
+          related:
+            success_nodes:
+            -   identifier: "F5 -2- AWS -Create custom TCP profile"
+          unified_job_template:
+            name: "F5 -2- AWS -Create custom clientssl"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
+      -   identifier: "F5 -2- AWS -Create custom TCP profile"
+          related:
+            success_nodes:
+            -   identifier: "F5 -2 - AWS -Add custom HTTP profile"
+          unified_job_template:
+            name: "F5 -2- AWS -Create custom TCP profile"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
+      -   identifier: "F5 -2 - AWS -Add custom HTTP profile"
+          unified_job_template:
+            name: "F5 -2 - AWS -Add custom HTTP profile"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
