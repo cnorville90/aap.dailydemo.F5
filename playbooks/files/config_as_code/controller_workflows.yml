@@ -1,4 +1,5 @@
 ---
+controller_workflows:
 -   name: "workflow - F5-0-AWS Add custom profiles"
     organization: "{{ my_organization }}"
     related:
