@@ -50,7 +50,7 @@ controller_workflows:
               name: "workflow - F5-0-AWS Add custom profiles"
               organization:
                 name: "{{ my_organization }}"
-              type: worflow_job_template
+              type: workflow_job_template
       -   identifier: "F5 -3- AWS -Add pool and members"
           related:
             success_nodes:
