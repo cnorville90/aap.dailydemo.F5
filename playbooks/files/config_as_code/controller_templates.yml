@@ -190,7 +190,7 @@ controller_templates:
     job_tags: create,remove
     credentials:
       - Daily Demo F5
-      - AWS Credential
+      - "{{ my_aws_credential }}"
       - "{{ my_rh_aap_credential }}"
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/basic_survey.json') | regex_replace('\\n', '') }}"

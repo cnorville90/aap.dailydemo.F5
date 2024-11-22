@@ -6,6 +6,7 @@
     my_organization: "Ames Company"
     my_vault: "ericames-vault"
     my_rh_aap_credential: "ericames.ddns.net - controller"
+    my_aws_credential: "AWS Credential"
 
   tasks:
 
