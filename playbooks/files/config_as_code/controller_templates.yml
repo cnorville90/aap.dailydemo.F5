@@ -184,7 +184,7 @@ controller_templates:
     inventory: AAP Managed Inventory
     organization: "{{ my_organization }}"
     execution_environment: Default execution environment
-    project: aap.dailydemo.f5
+    project: aap.dailydemo.F5
     playbook: playbooks/main.yml
     ask_tags_on_launch: true
     job_tags: create,remove
