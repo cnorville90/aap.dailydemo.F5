@@ -29,12 +29,12 @@
       {
         "question_description": "",
         "min": 0,
-        "default": "key_name",
+        "default": "cert.key",
         "max": 1024,
         "required": true,
         "choices": "",
         "new_question": true,
-        "variable": "cert.key",
+        "variable": "key_name",
         "question_name": "Type name of imported key",
         "type": "text"
       }
