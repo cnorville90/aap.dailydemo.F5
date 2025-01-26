@@ -99,7 +99,7 @@
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
-        name: ml_demo
+        name: tag_Type_ml_demo
         description: Group of web servers for the F5 daily demo
         inventory: "{{ inventory_managed_inventory_name }}"
         hosts: "{{ item['public_dns_name'] }}"
@@ -110,7 +110,7 @@
       ansible.builtin.add_host:
         name: "{{ item['public_dns_name'] }}"
         groups:
-          - ml_demo
+          - tag_Type_ml_demo
 
 
     - name: Remove my daily demo token
@@ -149,7 +149,7 @@
     - name: Remove inventory host groups
       loop:
         - f5demo
-        - ml_demo
+        - tag_Type_ml_demo
       ansible.controller.group:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
