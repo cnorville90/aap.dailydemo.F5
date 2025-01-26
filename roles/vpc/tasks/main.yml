@@ -44,6 +44,10 @@
             cidr_ip: "0.0.0.0/0"
             rule_desc: allow all on port 22 secure shell
           - proto: tcp
+            ports: 80
+            cidr_ip: "0.0.0.0/0"
+            rule_desc: http
+          - proto: tcp
             ports: 443
             cidr_ip: "0.0.0.0/0"
             rule_desc: https
