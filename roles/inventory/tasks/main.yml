@@ -23,6 +23,14 @@
           tag:Name: "{{ inventory_vm_name }}"
           instance-state-name: [running]
 
+    - name: Get Demo web instances we care about
+      register: web_instance_info
+      amazon.aws.ec2_instance_info:
+        region: "{{ inventory_region }}"
+        filters:
+          tag:group: "ml_demo"
+          instance-state-name: [running]
+
     - name: Create a new token using username/password
       ansible.controller.token:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
@@ -72,6 +80,39 @@
         groups:
           - f5demo
 
+    - name: Update the AAP Managed Inventory with webservers
+      loop: "{{ web_instance_info['instances'] }}"
+      ansible.controller.host:
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        controller_oauthtoken: "{{ controller_token }}"
+        validate_certs: false
+        name: "{{ item['public_dns_name'] }}"
+        inventory: "{{ inventory_managed_inventory_name }}"
+        state: present
+        enabled: true
+        variables:
+          ansible_host: "{{ item['public_ip_address'] }}"
+
+    - name: Create the ml_demo group of webservers
+      loop: "{{ web_instance_info['instances'] }}"
+      ansible.controller.group:
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        controller_oauthtoken: "{{ controller_token }}"
+        validate_certs: false
+        name: ml_demo
+        description: Group of web servers for the F5 daily demo
+        inventory: "{{ inventory_managed_inventory_name }}"
+        hosts: "{{ item['public_dns_name'] }}"
+        preserve_existing_hosts: true
+
+    - name: Update runtime inventory with the webservers
+      loop: "{{ web_instance_info['instances'] }}"
+      ansible.builtin.add_host:
+        name: "{{ item['public_dns_name'] }}"
+        groups:
+          - ml_demo
+
+
     - name: Remove my daily demo token
       ansible.controller.token:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
@@ -95,9 +136,20 @@
         inventory: "{{ inventory_managed_inventory_name }}"
         state: absent
 
+    - name: Remove webservers from the inventory
+      loop: "{{ web_instance_info['instances'] }}"
+      ansible.controller.host:
+        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        controller_oauthtoken: "{{ controller_token }}"
+        validate_certs: false
+        name: "{{ item['public_dns_name'] }}"
+        inventory: "{{ inventory_managed_inventory_name }}"
+        state: absent
+
     - name: Remove inventory host groups
       loop:
         - f5demo
+        - ml_demo
       ansible.controller.group:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"

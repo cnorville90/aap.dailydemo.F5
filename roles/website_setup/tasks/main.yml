@@ -1,0 +1,42 @@
+---
+- name: Get the create_date
+  register: create_date
+  ansible.builtin.command:
+    cmd: "date '+%Y-%m-%d'"
+
+- name: Get the website start Time
+  register: website_start_time
+  ansible.builtin.command:
+    cmd: "date '+%H:%M:%S'"
+
+- name: Copy the image file for the website
+  ansible.builtin.copy:
+    src: images/aap.png
+    dest: /var/www/html/aap.png
+    owner: root
+    group: root
+    mode: u+rw,g-wx,o-wx
+
+- name: Copy the image file for the website
+  ansible.builtin.copy:
+    src: images/AmesQNRCode.png
+    dest: /var/www/html/AmesQNRCode.png
+    owner: root
+    group: root
+    mode: u+rw,g-wx,o-wx
+
+- name: Copy the index.html for the website
+  ansible.builtin.template:
+    src: index_html_aapdemo.j2
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: u+rw,g-wx,o-wx
+
+- name: Create directory for patch report
+  ansible.builtin.file:
+    name: /var/www/html/patch
+    state: directory
+    owner: root
+    group: root
+    mode: u+rwx,g-w,o-wx
