@@ -10,7 +10,7 @@ vm_region: us-west-1
 vm_assign_public_ip: true
 vm_alwaysup: false
 vm_instance_type: m5.xlarge
-vm_webserver_instance_type: t2.micro
+vm_webserver_instance_type: m5.xlarge
 vm_ec2_security_group_name: "{{ vm_vpc_name }}_SECGRP"
 vm_ec2_ansible_group: "{{ vm_user_name }}"
 vm_my_email_address: "{{ vm_user_name }}@redhat.com"
