@@ -147,7 +147,13 @@ controller_workflows:
             success_nodes:
             -   identifier: "Daily Demo F5 website"
           unified_job_template:
-            name: "Daily Demo F5 website"
+            name: "Daily Demo F5 Create/Remove"
             organization:
               name: "{{ my_organization }}"
             type: job_template
+      -   identifier: "Daily Demo F5 website"
+          unified_job_template:
+              name: "Daily Demo F5 website"
+              organization:
+                name: "{{ my_organization }}"
+              type: job_template
