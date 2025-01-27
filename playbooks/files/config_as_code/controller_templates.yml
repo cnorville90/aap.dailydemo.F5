@@ -194,3 +194,13 @@ controller_templates:
       - "{{ my_rh_aap_credential }}"
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/basic_survey.json') | regex_replace('\\n', '') }}"
+
+  - name: "Daily Demo F5 website"
+    job_type: run
+    inventory: AAP Managed Inventory
+    organization: "{{ my_organization }}"
+    execution_environment: Default execution environment
+    project: aap.dailydemo.F5
+    playbook: playbooks/website_setup.yml
+    credentials:
+      - "{{ my_aws_machine_credential }}"
