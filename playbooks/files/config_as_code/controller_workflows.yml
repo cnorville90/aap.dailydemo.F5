@@ -133,3 +133,21 @@ controller_workflows:
               organization:
                 name: "{{ my_organization }}"
               type: workflow_job_template
+
+-   name: Daily Demo F5 Create
+    organization: "{{ my_organization }}"
+    job_tags:
+      - create
+    skip_tags:
+      - remove
+    related:
+      workflow_nodes:
+      -   identifier: "Daily Demo F5 Create/Remove"
+          related:
+            success_nodes:
+            -   identifier: "Daily Demo F5 website"
+          unified_job_template:
+            name: "Daily Demo F5 website"
+            organization:
+              name: "{{ my_organization }}"
+            type: job_template
