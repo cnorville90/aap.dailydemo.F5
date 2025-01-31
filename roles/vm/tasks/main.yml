@@ -111,6 +111,7 @@
       ansible.builtin.set_fact:
         public_dns_name: "{{ item['public_dns_name'] }}"
         public_ip_address: "{{ item['public_ip_address'] }}"
+        private_ip_address: "{{ item['private_ip_address'] }}"
 
     - name: Set the initial admin password
       ansible.builtin.expect:

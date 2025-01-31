@@ -58,6 +58,7 @@
         enabled: true
         variables:
           F5_mgmt_ip: "{{ item['public_ip_address'] }}"
+          private_ip_address: "{{ item['private_ip_address'] }}"
 
     - name: Create a group
       loop: "{{ instance_info['instances'] }}"
