@@ -13,7 +13,7 @@ Day 1 - Infrastructure as code (IAC)
 
 # The F5 User Interface
 
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5uipre.png "Pre Login")
+![alt text](./images/F5uipre.png "Pre Login")
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5uipost.png "Post Login")
 
 **The job logs contain the URL needed to login to the gui**
