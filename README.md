@@ -14,17 +14,17 @@ Day 1 - Infrastructure as code (IAC)
 # The F5 User Interface
 
 ![alt text](./images/F5uipre.png "Pre Login")
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5uipost.png "Post Login")
+![alt text](./images/F5uipost.png "Post Login")
 
 **The job logs contain the URL needed to login to the gui**
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5joblog.png "Job Log")
+![alt text](./images/F5joblog.png "Job Log")
 
 ```
 https://ec2-54-67-87-75.us-west-1.compute.amazonaws.com:8443
 ```
 # The command line; there's no place like home :-)
 
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5cli.png "The command line")
+![alt text](./images/F5cli.png "The command line")
 
 Example login using your ssh key that was shared with Amazon
 ```
@@ -34,7 +34,7 @@ ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 **The playbook**
 
 [1. Create and Delete F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/main.yml "main.yml")<br>
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5job.png "Create")<br>
+![alt text](./images/F5job.png "Create")<br>
 
 Tags used:
 ```
@@ -47,12 +47,12 @@ remove
 
 Red Hat Ansible Automation Platform<br>
 Daily Demo F5 Machine Credential<br>
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5machinecred.png "Machine Credential")<br>
+![alt text](./images/F5machinecred.png "Machine Credential")<br>
 Amazon Web Services Credential<br>
 
 **The AAP Managed Inventory**
 
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5inventory.png "AAP Managed Inventory")<br>
+![alt text](./images/F5inventory.png "AAP Managed Inventory")<br>
 
 Group name
 ```
@@ -60,7 +60,7 @@ f5demo
 ```
 
 **The Cleanup Schedule**
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5cleanup.png "F5 Daily Demo Cleanup")<br>
+![alt text](./images/F5cleanup.png "F5 Daily Demo Cleanup")<br>
 
 Day 2
 =========
@@ -107,7 +107,7 @@ options:
 
 **A Network Credential is reguired for Day 2 ops**
 
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/F5networkcred.png "Daily Demo F5 Network credential")<br>
+![alt text](./images/F5networkcred.png "Daily Demo F5 Network credential")<br>
 
 
 Looking for other Daily Demos?
