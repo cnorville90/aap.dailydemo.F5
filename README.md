@@ -24,7 +24,7 @@ https://ec2-54-67-87-75.us-west-1.compute.amazonaws.com:8443
 ```
 # The command line; there's no place like home :-)
 
-![alt text](/images/F5cli.png "The command line")
+![](/images/F5cli.png)
 
 Example login using your ssh key that was shared with Amazon
 ```
