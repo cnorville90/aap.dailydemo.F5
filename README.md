@@ -24,7 +24,7 @@ https://ec2-54-67-87-75.us-west-1.compute.amazonaws.com:8443
 ```
 # The command line; there's no place like home :-)
 
-![](/images/F5cli.png)
+![Check out the readme in the git repo](/images/F5cli.png)
 
 Example login using your ssh key that was shared with Amazon
 ```
@@ -34,7 +34,7 @@ ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 **The playbook**
 
 [1. Create and Delete F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/main.yml "main.yml")<br>
-![](/images/F5job.png)<br>
+![Check out the readme in the git repo](/images/F5job.png)<br>
 
 Tags used:
 ```
@@ -52,7 +52,7 @@ Amazon Web Services Credential<br>
 
 **The AAP Managed Inventory**
 
-![](/images/F5inventory.png)<br>
+![Check out the readme in the git repo](/images/F5inventory.png)<br>
 
 Group name
 ```
@@ -60,7 +60,7 @@ f5demo
 ```
 
 **The Cleanup Schedule**
-![](/images/F5cleanup.png)<br>
+![Check out the readme in the git repo](/images/F5cleanup.png)<br>
 
 Day 2
 =========
@@ -107,7 +107,7 @@ options:
 
 **A Network Credential is reguired for Day 2 ops**
 
-![](/images/F5networkcred.png)<br>
+![Check out the readme in the git repo](/images/F5networkcred.png)<br>
 
 
 Looking for other Daily Demos?
