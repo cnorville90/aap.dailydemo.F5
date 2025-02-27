@@ -13,11 +13,11 @@ Day 1 - Infrastructure as code (IAC)
 
 # The F5 User Interface
 
-![](/images/F5uipre.png)
-![](/images/F5uipost.png)
+![Check out the readme in the git repo](/images/F5uipre.png)
+![Check out the readme in the git repo](/images/F5uipost.png)
 
 **The job logs contain the URL needed to login to the gui**
-![](/images/F5joblog.png)
+![Check out the readme in the git repo](/images/F5joblog.png)
 
 ```
 https://ec2-54-67-87-75.us-west-1.compute.amazonaws.com:8443
