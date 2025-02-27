@@ -17,7 +17,7 @@ Day 1 - Infrastructure as code (IAC)
 ![](/images/F5uipost.png)
 
 **The job logs contain the URL needed to login to the gui**
-![alt text](/images/F5joblog.png "Job Log")
+![](/images/F5joblog.png)
 
 ```
 https://ec2-54-67-87-75.us-west-1.compute.amazonaws.com:8443
@@ -34,7 +34,7 @@ ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 **The playbook**
 
 [1. Create and Delete F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/main.yml "main.yml")<br>
-![alt text](/images/F5job.png "Create")<br>
+![](/images/F5job.png)<br>
 
 Tags used:
 ```
@@ -47,12 +47,12 @@ remove
 
 Red Hat Ansible Automation Platform<br>
 Daily Demo F5 Machine Credential<br>
-![alt text](/images/F5machinecred.png "Machine Credential")<br>
+![](/images/F5machinecred.png)<br>
 Amazon Web Services Credential<br>
 
 **The AAP Managed Inventory**
 
-![alt text](/images/F5inventory.png "AAP Managed Inventory")<br>
+![](/images/F5inventory.png)<br>
 
 Group name
 ```
@@ -60,7 +60,7 @@ f5demo
 ```
 
 **The Cleanup Schedule**
-![alt text](/images/F5cleanup.png "F5 Daily Demo Cleanup")<br>
+![](/images/F5cleanup.png)<br>
 
 Day 2
 =========
@@ -107,7 +107,7 @@ options:
 
 **A Network Credential is reguired for Day 2 ops**
 
-![alt text](/images/F5networkcred.png "Daily Demo F5 Network credential")<br>
+![](/images/F5networkcred.png)<br>
 
 
 Looking for other Daily Demos?
