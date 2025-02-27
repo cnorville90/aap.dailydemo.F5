@@ -13,8 +13,8 @@ Day 1 - Infrastructure as code (IAC)
 
 # The F5 User Interface
 
-[](/images/F5uipre.png "Pre Login")
-[](/images/F5uipost.png "Post Login")
+[t](/images/F5uipre.png "Pre Login")
+[t](/images/F5uipost.png "Post Login")
 
 **The job logs contain the URL needed to login to the gui**
 ![alt text](/images/F5joblog.png "Job Log")
