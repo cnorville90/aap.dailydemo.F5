@@ -134,7 +134,7 @@ controller_workflows:
                 name: "{{ my_organization }}"
               type: workflow_job_template
 
--   name: Daily Demo F5 Create
+-   name: Run workflow for the f5 Daily Demo
     organization: "{{ my_organization }}"
     job_tags:
       create
