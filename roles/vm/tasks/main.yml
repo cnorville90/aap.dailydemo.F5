@@ -170,7 +170,7 @@
       loop: "{{ instance_info['instances'] }}"
       amazon.aws.ec2_instance:
         region: "{{ vm_region }}"
-        state: absent
+        state: terminated
         instance_ids: "{{ item['instance_id'] }}"
 
     - name: Get elastic ip addresses
