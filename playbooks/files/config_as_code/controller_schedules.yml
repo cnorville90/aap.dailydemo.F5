@@ -1,6 +1,6 @@
 ---
 controller_schedules:
-  - name: Daily Demo F5 auto delete
+  - name: Delete Daily Demo f5
     description: Schedule to run the demo playbook once a day at 6:00 pm
     rrule: DTSTART;TZID={{ timezone_id }}:20230101T180000 RRULE:FREQ=DAILY;INTERVAL=1
     unified_job_template: "Daily Demo F5 Create/Remove"
