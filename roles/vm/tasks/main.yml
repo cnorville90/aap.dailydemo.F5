@@ -46,6 +46,7 @@
         name: "{{ vm_name }}"
         region: "{{ vm_region }}"
         state: running
+        availability_zone: us-east-1a
         key_name: "{{ vm_my_ssh_key }}"
         vpc_subnet_id: "{{ vpc_subnet_id }}"
         instance_type: "{{ vm_instance_type }}"
