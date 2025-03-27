@@ -6,7 +6,7 @@ vm_subnet_name: "{{ vm_vpc_name }}_Subnet"
 vm_image: ami-0a6612e49a32df1e9
 vm_image_webserver: ami-054f77471c0e69deb
 vm_webserver_count: 2
-vm_region: us-west-1
+vm_region: us-east-1
 vm_assign_public_ip: true
 vm_alwaysup: false
 vm_instance_type: m5.xlarge
