@@ -5,5 +5,5 @@ inventory_vm_name: F5 Daily Demo
 # CONTROLLER_USERNAME: mickey.mouse
 # CONTROLLER_PASSWORD: password
 inventory_managed_inventory_name: AAP Managed Inventory
-inventory_region: us-west-1
+inventory_region: us-east-1
 ansible_python_interpreter: /usr/bin/python3
