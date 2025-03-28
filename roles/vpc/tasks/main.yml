@@ -60,6 +60,7 @@
       register: my_vpc_subnet
       amazon.aws.ec2_vpc_subnet:
         state: present
+        az: "{{ vpc_region }}a"
         vpc_id: "{{ my_vpc.vpc.id }}"
         cidr: "{{ vpc_cidr }}"
         region: "{{ vpc_region }}"
