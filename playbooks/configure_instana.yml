@@ -11,6 +11,8 @@
     - name: Insert the httpd configuration directive
       ansible.builtin.blockinfile:
         path: /etc/httpd/conf/httpd.conf
+        append_newline: true
+        prepend_newline: true
         insertafter: ^ServerRoot "/etc/httpd"
         block: |
           <Location /server-status>
