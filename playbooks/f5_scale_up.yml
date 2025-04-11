@@ -1,0 +1,87 @@
+- name: Creates an additional Ec2 instance, syncs inventory and Adds to AAP inventory
+  hosts: localhost
+  connection: local
+  vars:
+    vm_name: F5 Daily Demo
+    vm_my_ssh_key: aap_aws
+    vpc_region: us-east-1
+    vm_region: us-east-1
+    vpc_user_name: chris.norville
+    vm_username: chris.norville
+    vm_image: ami-03e23b76dbc077805
+    vm_image_webserver: ami-0c15e602d3d6c6c4a
+    vm_webserver_instance_type: t2.small
+    vm_webserver_count: 1
+    vm_vpc_name: f5-dailydemo
+    vm_assign_public_ip: true
+    vm_alwaysup: false
+    vm_ec2_security_group_name: "{{ vm_vpc_name }}_SECGRP"
+    vm_my_email_address: "{{ vm_user_name }}@redhat.com"
+    vm_ec2_ansible_group: "{{ vm_user_name }}"
+    user_data: "{{ lookup('file', 'files/install_instana_agent.sh') }}"
+
+  tasks:
+
+    - name: Looking up Subnet_id
+      amazon.aws.ec2_vpc_subnet_info:
+        region: "{{ vm_region }}"
+        filters:
+          tag:Name: "{{ vm_subnet_name }}"
+      register: subnet_id
+
+    - name: Setting vpc_subnet_id based on Lookup
+      ansible.builtin.set_fact:
+        vpc_subnet_id: "{{ subnet_id.subnets[0].id }}"
+      when: vpc_subnet_id is undefined
+
+    - name: Creating F5 Daily Demo Web Servers
+      amazon.aws.ec2_instance:
+        name: "{{ vm_name }} webserver"
+        region: "{{ vm_region }}"
+        state: running
+        key_name: "{{ vm_my_ssh_key }}"
+        vpc_subnet_id: "{{ vpc_subnet_id }}"  # Resolve
+        instance_type: "{{ vm_webserver_instance_type }}"
+        exact_count: "{{ vm_webserver_count }}"
+        security_group: "{{ vm_ec2_security_group_name }}"
+        network:
+          assign_public_ip: "{{ vm_assign_public_ip }}"
+        image_id: "{{ vm_image_webserver }}"
+        tags:
+          Environment: "{{ vm_vpc_name }}"
+          AlwaysUp: "{{ vm_alwaysup }}"
+          Createdby: Ansible Controller
+          Contact: "{{ vm_my_email_address }}"
+          DeletebBy: "{{ vm_ec2_ansible_group }}"
+          group: ml_demo
+        wait: true
+        wait_timeout: 600
+      register: ec2_additional_web_servers
+
+    - name: Put an EIP on the new webserver(s)
+      amazon.aws.ec2_eip:
+        device_id: "{{ item['instance_id'] }}"
+        region: "{{ vm_region }}"
+        tag_name: reserved_for
+        tag_value: "{{ item['instance_id'] }}"
+        release_on_disassociation: true
+        tags:
+          Environment: "{{ vm_vpc_name }}"
+          AlwaysUp: "{{ vm_alwaysup }}"
+          Createdby: Ansible Controller
+          Contact: "{{ vm_my_email_address }}"
+          DeletebBy: "{{ vm_ec2_ansible_group }}"
+      register: ec2_webserver_eips
+      loop: "{{ ec2_additional_web_servers['instances'] }}"
+
+    - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
+      loop: "{{ ec2_webserver_eips['results'] }}"
+      ansible.builtin.wait_for:
+        port: 22
+        host: "{{ item['public_ip'] }}"
+        search_regex: OpenSSH
+        delay: 10
+
+    - name: Wait for things to come up
+      ansible.builtin.pause:
+        seconds: 60
