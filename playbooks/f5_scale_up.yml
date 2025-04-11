@@ -41,7 +41,7 @@
         region: "{{ vm_region }}"
         state: running
         key_name: "{{ vm_my_ssh_key }}"
-        vpc_subnet_id: "{{ vpc_subnet_id }}"  # Resolve
+        vpc_subnet_id: "{{ vpc_subnet_id }}"
         instance_type: "{{ vm_webserver_instance_type }}"
         exact_count: "{{ vm_webserver_count }}"
         security_group: "{{ vm_ec2_security_group_name }}"
