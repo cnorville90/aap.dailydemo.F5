@@ -8,6 +8,7 @@
     vm_region: us-east-1
     vpc_user_name: chris.norville
     vm_username: chris.norville
+    vm_subnet_name: "{{ vm_vpc_name }}_Subnet"
     vm_image: ami-03e23b76dbc077805
     vm_image_webserver: ami-0c15e602d3d6c6c4a
     vm_webserver_instance_type: t2.small
