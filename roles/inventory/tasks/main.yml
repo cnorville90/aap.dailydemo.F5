@@ -97,7 +97,7 @@
     - name: Create the ml_demo group of webservers
       loop: "{{ web_instance_info['instances'] }}"
       ansible.controller.group:
-        controller_hosn: "{{ controller_token }}"
+        controller_host: "{{ controller_token }}"
         validate_certs: false
         name: tag_Type_ml_demo
         description: Group of web servers for the F5 daily demo
