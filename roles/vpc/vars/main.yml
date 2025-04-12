@@ -1,8 +1,8 @@
 ---
 vpc_name: f5-dailydemo
 vpc_cidr: 172.16.10.0/24
-vpc_region: us-west-1
-vpc_user_name: eric.ames
+vpc_region: us-east-1
+vpc_user_name: chris.norville
 vpc_alwaysup: false
 vpc_deleteby: hercules
 vpc_ec2_ansible_group: "{{ vpc_user_name }}"
