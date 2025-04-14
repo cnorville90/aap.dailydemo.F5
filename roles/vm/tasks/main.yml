@@ -27,6 +27,7 @@
         instance_type: "{{ vm_webserver_instance_type }}"
         exact_count: "{{ vm_webserver_count }}"
         security_group: "{{ vm_ec2_security_group_name }}"
+        user_data: "{{ instana_user_data }}"
         network:
           assign_public_ip: false
         image_id: "{{ vm_image_webserver }}"
