@@ -12,6 +12,19 @@
     name: firewalld
     enabled: true
 
+- name: Add a block in httpd.conf for server-status / Instana monitoring
+  ansible.builtin.blockinfile:
+    path: /etc/httpd/conf/httpd.conf
+    append_newline: true
+    prepend_newline: true
+    insertafter: ^ServerRoot "/etc/httpd"
+    block: |
+      <Location /server-status>
+        SetHandler server-status
+      </Location>
+      ExtendedStatus On
+    state: present
+
 - name: Starting httpd
   ansible.builtin.systemd:
     state: started
