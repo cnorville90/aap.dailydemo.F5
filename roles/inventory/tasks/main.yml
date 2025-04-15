@@ -87,12 +87,12 @@
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
         controller_oauthtoken: "{{ controller_token }}"
         validate_certs: false
-        name: "{{ item['private_dns_name'] }}"
+        name: "{{ item['public_dns_name'] }}"
         inventory: "{{ inventory_managed_inventory_name }}"
         state: present
         enabled: true
         variables:
-          ansible_host: "{{ item['private_ip_address'] }}"
+          ansible_host: "{{ item['public_ip_address'] }}"
 
     - name: Create the ml_demo group of webservers
       loop: "{{ web_instance_info['instances'] }}"
@@ -103,13 +103,13 @@
         name: tag_Type_ml_demo
         description: Group of web servers for the F5 daily demo
         inventory: "{{ inventory_managed_inventory_name }}"
-        hosts: "{{ item['private_dns_name'] }}"
+        hosts: "{{ item['public_dns_name'] }}"
         preserve_existing_hosts: true
 
     - name: Update runtime inventory with the webservers
       loop: "{{ web_instance_info['instances'] }}"
       ansible.builtin.add_host:
-        name: "{{ item['private_dns_name'] }}"
+        name: "{{ item['public_dns_name'] }}"
         groups:
           - tag_Type_ml_demo
 

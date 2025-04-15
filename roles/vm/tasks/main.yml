@@ -29,7 +29,7 @@
         security_group: "{{ vm_ec2_security_group_name }}"
         user_data: "{{ vm_instana_user_data }}"
         network:
-          assign_public_ip: true
+          assign_public_ip: "{{ vm_assign_public_ip }}"
         image_id: "{{ vm_image_webserver }}"
         tags:
           Environment: "{{ vm_vpc_name }}"
