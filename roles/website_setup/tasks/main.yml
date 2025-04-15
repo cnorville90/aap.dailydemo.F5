@@ -63,3 +63,8 @@
     owner: root
     group: root
     mode: u+rw,g-wx,o-wx
+
+- name: Restart the webserver
+  ansible.builtin.service:
+    name: httpd
+    state: restarted
