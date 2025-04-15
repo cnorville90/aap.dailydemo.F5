@@ -24,6 +24,7 @@
       </Location>
       ExtendedStatus On
     state: present
+  notify: restart_instana_agent
 
 - name: Starting httpd
   ansible.builtin.systemd:
