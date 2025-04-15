@@ -12,7 +12,7 @@
 
 - name: Creating F5 Daily Demo Web Servers
   amazon.aws.ec2_instance:
-    name: "{{ scale_up_name }} webserver"
+    name: "{{ scale_up_name }} webserver Scale Up"
     region: "{{ scale_up_region }}"
     state: running
     key_name: "{{ scale_up_my_ssh_key }}"
@@ -35,7 +35,14 @@
     wait_timeout: 600
   register: ec2_additional_web_servers
 
+- name: Dump out the results
+  ansible.builtin.debug:
+    var: ec2_additional_web_servers
+
+
+
 - name: Put an EIP on the new webserver(s)
+  loop: "{{ ec2_additional_web_servers['instances'] }}"
   amazon.aws.ec2_eip:
     device_id: "{{ item['instance_id'] }}"
     region: "{{ scale_up_region }}"
@@ -49,7 +56,6 @@
       Contact: "{{ scale_up_my_email_address }}"
       DeletebBy: "{{ scale_up_ec2_ansible_group }}"
   register: ec2_webserver_eips
-  loop: "{{ ec2_additional_web_servers['instances'] }}"
 
 
 - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
