@@ -16,4 +16,4 @@ vm_ec2_ansible_group: "{{ vm_user_name }}"
 vm_my_email_address: "{{ vm_user_name }}@redhat.com"
 vm_my_ssh_key: aap_aws
 ansible_python_interpreter: /usr/bin/python3
-instana_user_data: "{{ lookup('file', 'install_instana_agent.sh') }}"
+vm_instana_user_data: "{{ lookup('file', 'files/install_instana_agent.sh') }}"
