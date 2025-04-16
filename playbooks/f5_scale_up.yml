@@ -6,16 +6,19 @@
   tasks:
 
     - name: Include the scale_up role
+      tags:
+        - create
       ansible.builtin.include_role:
         name: scale_up
 
     - name: Dump out the instance id
+      tags:
+        - create
       ansible.builtin.debug:
         var: additional_webserver_instance_id
 
     - name: Include the inventory role
+      tags:
+        - create
       ansible.builtin.include_role:
         name: inventory
-        apply:
-          tags:
-            - create
