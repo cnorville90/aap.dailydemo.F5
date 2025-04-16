@@ -1,0 +1,9 @@
+- name: First thing lets do is get the Ec2 info
+  amazon.aws.ec2_instance_info:
+    instance_ids:
+      - i-06659bba1f9895a7e
+  register: new_node_info
+
+- name: Lets dump out the Ec2 info
+  ansible.builtin.debug:
+    var: new_node_info
