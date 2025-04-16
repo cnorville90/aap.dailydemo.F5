@@ -6,8 +6,6 @@
   tasks:
 
     - name: Include the vpc role
-      tags:
-        - create
       ansible.builtin.include_role:
         name: scale_up
 
@@ -21,5 +19,3 @@
         apply:
           tags:
             - create
-      tags:
-        - create
