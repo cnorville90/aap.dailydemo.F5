@@ -1,7 +1,7 @@
-# - name: Include tasks to create the new Ec2 instance_type
-#   ansible.builtin.include_tasks:
-#     file: create_additional_ec2.yml
-
-- name: INclude tasks to setup the webserver and Instana
+- name: Include tasks to create the new Ec2 instance_type
   ansible.builtin.include_tasks:
-    file: setup_webserver.yml
+    file: create_additional_ec2.yml
+
+# - name: INclude tasks to setup the webserver and Instana
+#   ansible.builtin.include_tasks:
+#     file: setup_webserver.yml

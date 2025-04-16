@@ -10,3 +10,13 @@
         - scale_up
       ansible.builtin.include_role:
         name: scale_up
+
+    - name: Dump out the instance id
+      ansible.builtin.debug:
+        var: additional_webserver_instance_id
+
+    - name: Include the inventory role
+      tags:
+        - scale_up
+      ansible.builtin.include_role:
+        name: inventory
