@@ -40,7 +40,7 @@
   amazon.aws.ec2_eip:
     device_id: "{{ item['instance_id'] }}"
     region: "{{ scale_up_region }}"
-    tag_name: reserved_for
+    tag_name: reserved_forroles/website_setup/images
     tag_value: "{{ item['instance_id'] }}"
     release_on_disassociation: true
     tags:
