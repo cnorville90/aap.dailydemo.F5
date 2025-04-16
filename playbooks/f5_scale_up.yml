@@ -1,6 +1,7 @@
 - name: Creates an additional Ec2 instance, syncs inventory and Adds to AAP inventory
   hosts: localhost
   connection: local
+  become: true
 
   tasks:
 
