@@ -12,7 +12,7 @@
 - name: Block to setup the webserver
   vars:
     additional_webserver_instance_id: "i-06659bba1f9895a7e"
-  when: "{{ new_node_info.instances[0].instance_id }} == {{ additional_webserver_instance_id }}"
+  when: new_node_info.instances[0].instance_id == additional_webserver_instance_id
   ansible.builtin.debug:
     msg: "Passed the test"
   # block
