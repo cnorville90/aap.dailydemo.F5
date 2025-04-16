@@ -62,3 +62,12 @@
 - name: Wait for things to come up
   ansible.builtin.pause:
     seconds: 60
+
+- name: Grab the instance id of the new webserver so we can set up the webserver
+  loop: "{{ ec2_additional_web_servers['instances'] }}"
+  ansible.builtin.set_fact:
+    additional_webserver_instance_id: "{{ item['instance_id'] }}"
+
+- name: Dump out the instance id
+  ansible.builtin.debug:
+    var: additional_webserver_instance_id
