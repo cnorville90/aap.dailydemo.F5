@@ -47,6 +47,7 @@
     owner: root
     group: root
     mode: u+rw,g-wx,o-wx
+  notify: restart_webserver
 
 - name: Copy the image file for the website
   ansible.builtin.copy:
@@ -55,6 +56,7 @@
     owner: root
     group: root
     mode: u+rw,g-wx,o-wx
+  notify: restart_webserver
 
 - name: Copy the index.html for the website
   ansible.builtin.template:
@@ -63,8 +65,4 @@
     owner: root
     group: root
     mode: u+rw,g-wx,o-wx
-
-- name: Restart the webserver
-  ansible.builtin.service:
-    name: httpd
-    state: restarted
+  notify: restart_webserver

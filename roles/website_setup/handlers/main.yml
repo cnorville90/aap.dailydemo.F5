@@ -2,3 +2,8 @@
   ansible.builtin.service:
     name: instana-agent
     state: restarted
+
+- name: restart_webserver
+  ansible.builtin.service:
+    name: httpd
+    state: restarted
