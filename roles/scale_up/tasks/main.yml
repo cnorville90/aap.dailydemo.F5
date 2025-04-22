@@ -4,21 +4,11 @@
     filters:
       tag:Name: "{{ scale_up_subnet_name }}"
   register: subnet_id
-  tags:
-    - create
 
 - name: Setting vpc_subnet_id based on Lookup
   ansible.builtin.set_fact:
     vpc_subnet_id: "{{ subnet_id.subnets[0].id }}"
   when: vpc_subnet_id is undefined
-  tags:
-    - create
-
-- name: Dump out the instana var
-  ansible.builtin.debug:
-    var: scale_up_instana_user_data
-  tags:
-    - create
 
 - name: Creating F5 Daily Demo Web Servers
   amazon.aws.ec2_instance:
@@ -44,8 +34,6 @@
     wait: true
     wait_timeout: 600
   register: ec2_additional_web_servers
-  tags:
-    - create
 
 - name: Put an EIP on the new webserver(s)
   loop: "{{ ec2_additional_web_servers['instances'] }}"
@@ -62,8 +50,6 @@
       Contact: "{{ scale_up_my_email_address }}"
       DeletebBy: "{{ scale_up_ec2_ansible_group }}"
   register: ec2_webserver_eips
-  tags:
-    - create
 
 - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
   loop: "{{ ec2_webserver_eips['results'] }}"
@@ -72,24 +58,16 @@
     host: "{{ item['public_ip'] }}"
     search_regex: OpenSSH
     delay: 10
-  tags:
-    - create
 
 - name: Wait for things to come up
   ansible.builtin.pause:
     seconds: 60
-  tags:
-    - create
 
 - name: Grab the instance id of the new webserver so we can set up the webserver
   loop: "{{ ec2_additional_web_servers['instances'] }}"
   ansible.builtin.set_fact:
     additional_webserver_instance_id: "{{ item['instance_id'] }}"
-  tags:
-    - create
 
 - name: Dump out the instance id
   ansible.builtin.debug:
     var: additional_webserver_instance_id
-  tags:
-    - create
