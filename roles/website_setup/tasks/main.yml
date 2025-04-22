@@ -4,6 +4,7 @@
     name:
       - firewalld
       - httpd
+      - stress-ng
     state: present
 
 - name: Starting Firewalld
