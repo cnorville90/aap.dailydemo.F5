@@ -17,6 +17,8 @@
 - name: Dump out the instana var
   ansible.builtin.debug:
     var: scale_up_instana_user_data
+  tags:
+    - create
 
 - name: Creating F5 Daily Demo Web Servers
   amazon.aws.ec2_instance:
