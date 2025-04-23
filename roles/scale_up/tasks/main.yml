@@ -20,7 +20,6 @@
       ansible.builtin.debug:
         var: scale_up_instana_user_data
 
-
     - name: Creating F5 Daily Demo Web Servers
       amazon.aws.ec2_instance:
         name: "{{ scale_up_name }} webserver Scale Up"
@@ -31,10 +30,10 @@
         instance_type: "{{ scale_up_webserver_instance_type }}"
         exact_count: "{{ scale_up_webserver_count }}"
         security_group: "{{ scale_up_ec2_security_group_name }}"
+        user_data: "{{ scale_up_instana_user_data }}"
         network:
           assign_public_ip: "{{ scale_up_assign_public_ip }}"
         image_id: "{{ scale_up_image_webserver }}"
-        user_data: "{{ scale_up_instana_user_data }}"
         tags:
           Environment: "{{ scale_up_vpc_name }}"
           AlwaysUp: "{{ scale_up_alwaysup }}"
