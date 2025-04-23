@@ -16,7 +16,7 @@
         vpc_subnet_id: "{{ subnet_id.subnets[0].id }}"
       when: vpc_subnet_id is undefined
 
-    - name: Dump out the INstana User user_data:
+    - name: Dump out the INstana User user_data
       ansible.builtin.debug:
         var: scale_up_instana_user_data
 
