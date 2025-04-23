@@ -59,6 +59,7 @@
           Createdby: Ansible Controller
           Contact: "{{ scale_up_my_email_address }}"
           DeletebBy: "{{ scale_up_ec2_ansible_group }}"
+          Name: "{{ scale_up_name }} webserver Scale Up"
       register: ec2_webserver_eips
 
     - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
