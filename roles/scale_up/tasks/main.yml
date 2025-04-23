@@ -30,7 +30,7 @@
         instance_type: "{{ scale_up_webserver_instance_type }}"
         exact_count: "{{ scale_up_webserver_count }}"
         security_group: "{{ scale_up_ec2_security_group_name }}"
-        user_data: "{{ scale_up_instana_user_data }}"
+        # user_data: "{{ scale_up_instana_user_data }}"
         network:
           assign_public_ip: "{{ scale_up_assign_public_ip }}"
         image_id: "{{ scale_up_image_webserver }}"
@@ -82,3 +82,11 @@
     - name: Dump out the instance id
       ansible.builtin.debug:
         var: additional_webserver_instance_id
+
+    - name: INstall Instana Agent
+      ansible.builtin.shell: "{{ scale_up_instana_user_data }}"
+      register: instana_output
+
+    - name: Dump out the instance id
+      ansible.builtin.debug:
+        var: instana_output
