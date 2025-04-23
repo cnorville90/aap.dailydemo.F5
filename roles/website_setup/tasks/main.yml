@@ -13,6 +13,10 @@
     name: firewalld
     enabled: true
 
+- name: INstall the INstana Agent if not already there
+  ansible.builtin.shell: "{{ scale_up_instana_user_data }}"
+  ignore_errors: true
+
 - name: Add a block in httpd.conf for server-status / Instana monitoring
   ansible.builtin.blockinfile:
     path: /etc/httpd/conf/httpd.conf
