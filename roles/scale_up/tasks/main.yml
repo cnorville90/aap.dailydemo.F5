@@ -16,6 +16,11 @@
         vpc_subnet_id: "{{ subnet_id.subnets[0].id }}"
       when: vpc_subnet_id is undefined
 
+    - name: Dump out the INstana User user_data:
+      ansible.builtin.debug:
+        var: scale_up_instana_user_data
+
+
     - name: Creating F5 Daily Demo Web Servers
       amazon.aws.ec2_instance:
         name: "{{ scale_up_name }} webserver Scale Up"
