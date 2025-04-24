@@ -83,10 +83,12 @@
       ansible.builtin.debug:
         var: additional_webserver_instance_id
 
-    - name: INstall Instana Agent
-      ansible.builtin.shell: "{{ scale_up_instana_user_data }}"
-      register: instana_output
-
     - name: Dump out the instance id
-      ansible.builtin.debug:
-        var: instana_output
+      ansible.builtin.copy:
+        src: files/install_instana_agent.sh
+        dest: /tmp/install_instana_agent.sh
+        owner: root
+        mode: '0755'
+
+    - name: Run the command
+      ansible.builtin.shell: /tmp/install_instana_agent.sh
