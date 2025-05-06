@@ -1,0 +1,18 @@
+---
+- name: Enable the http action senor in the Instana agent
+  hosts: tag_Type_ml_demo
+  become: true
+  gather_facts: false
+
+  tasks:
+
+    - name: Edit the file
+      ansible.builtin.blockinfile:
+        path: /opt/instana/agent/etc/instana/configuration.yml
+        append_newline: true
+        prepend_newline: true
+        insertafter: "^#com.instana.plugin.action.http"
+        block: |
+            com.instana.plugin.action.http:
+              enabled: false
+        state: present
