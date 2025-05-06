@@ -9,8 +9,6 @@
     - name: Edit the file
       ansible.builtin.blockinfile:
         path: /opt/instana/agent/etc/instana/configuration.yml
-        append_newline: true
-        prepend_newline: true
         insertafter: "^#com.instana.plugin.action.http"
         block: |
             com.instana.plugin.action.http:
