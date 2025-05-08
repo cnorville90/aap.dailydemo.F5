@@ -66,3 +66,14 @@
     group: root
     mode: u+rw,g-wx,o-wx
   notify: restart_webserver
+
+- name: Edit the instana configuration file to turn on the http sensor
+  ansible.builtin.blockinfile:
+    path: /opt/instana/agent/etc/instana/configuration.yaml
+    insertafter: "^#com.instana.plugin.action.http: |
+                      enabled: true"
+    block: |
+        com.instana.plugin.action.http:
+          enabled: true
+    state: present
+  notify: restart_instana_agent
