@@ -36,18 +36,7 @@
   ansible.posix.firewalld:
     service: http
     permanent: true
-    state: enabled
-    immediate: true
-    zone: public
-
-- name: Copy the image file for the website
-  ansible.builtin.copy:
-    src: images/aap.png
-    dest: /var/www/html/aap.png
-    owner: root
-    group: root
-    mode: u+rw,g-wx,o-wx
-  notify: restart_webserver
+    state: enabled 
 
 - name: Copy the image file for the website
   ansible.builtin.copy:
