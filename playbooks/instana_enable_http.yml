@@ -15,7 +15,7 @@
             com.instana.plugin.action.http:
               enabled: true
         state: present
-      notify:: restart_instana
+      notify: restart_instana
 
   handlers:
 
