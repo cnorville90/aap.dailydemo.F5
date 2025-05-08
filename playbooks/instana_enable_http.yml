@@ -9,8 +9,9 @@
     - name: Edit the file
       ansible.builtin.blockinfile:
         path: /opt/instana/agent/etc/instana/configuration.yaml
-        insertafter: "^#com.instana.plugin.action.http"
+        insertafter: "^#com.instana.plugin.action.http |
+                          enabled: true"
         block: |
             com.instana.plugin.action.http:
-              enabled: false
+              enabled: true
         state: present
