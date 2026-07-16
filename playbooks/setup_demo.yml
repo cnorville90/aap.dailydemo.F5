@@ -50,9 +50,10 @@
         msg: "{{ user_message }}"
 
     - name: Remove my token
-      ansible.controller.token:
-        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
-        existing_token: "{{ controller_token }}"
-        validate_certs: false
+      ansible.platform.token:
+        gateway_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        gateway_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
+        gateway_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
+        gateway_validate_certs: false
+        existing_token_id: "{{ aap_token.id }}"
         state: absent
