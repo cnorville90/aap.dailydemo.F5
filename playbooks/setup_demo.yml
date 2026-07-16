@@ -26,10 +26,10 @@
 
     - name: Create a new token
       ansible.platform.token:
-        aap_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        aap_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
-        aap_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
-        aap_validate_certs: false
+        gateway_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        gateway_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
+        gateway_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
+        gateway_validate_certs: false
         description: F5 Setup
         scope: write
         state: present
