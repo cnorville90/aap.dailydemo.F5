@@ -4,7 +4,7 @@
   gather_facts: false
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    my_organization: "Ansible Product Demos (APD)"
+    my_organization: "IT Service Automation"
     my_vault: "Norville - Vault"
     my_rh_aap_credential: "AAP Credential"
     my_aws_credential: "AWS"
