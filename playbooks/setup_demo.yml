@@ -5,10 +5,10 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
     my_organization: "Ansible Product Demos (APD)"
-    my_vault: "ericames-vault"
-    my_rh_aap_credential: "ericames.ddns.net - controller"
-    my_aws_credential: "AWS Credential"
-    my_aws_machine_credential: "AWS Machine Credential - Ames"
+    my_vault: "Norville - Vault"
+    my_rh_aap_credential: "AAP Credential"
+    my_aws_credential: "AWS"
+    my_aws_machine_credential: "AWS Machine Credential"
     timezone_id: "America/Phoenix"
 
   tasks:
